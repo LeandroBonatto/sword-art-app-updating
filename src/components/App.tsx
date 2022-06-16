@@ -26,27 +26,23 @@ export const App = () => {
     //3 we use .then to display the json data in the console
     setPosts (json);
 }
+
+console.log("posts", posts);
   
 //UseEffect is a hook that is called after the component is rendered
 //to perform some kind of side effect e.g data fetching, subscription to events, etc
 //UseEffect is a function that takes a function as an argument, returns a cleanup function
+//If dependency array is missing, use effect will be called on every render
+//When we provide empty dependency array, useEffect will be called only once
+//When we provide dependencies, if dependencies change, useEffect will be called again
 useEffect(() => {
   fetchPosts();
-
-  return () => {
-    second
-  }
-}, [third])
-
-
+}, []);
 
 const userNotLoggedIn = (
   <h3 className="not-logged-in">
     Please log in as admin to see character list</h3>
 )
-
-
-
 return <div className="App" >
   <Login setLoggedIn={setIsLoggedIn}/>
   {isLoggedIn ? <CharacterList /> : userNotLoggedIn}      
