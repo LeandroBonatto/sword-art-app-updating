@@ -28,6 +28,13 @@ export const App = () => {
 }
 
 console.log("posts", posts);
+
+for (let index = 0; index < 100; index++) {
+  useEffect(() => {
+    fetchPosts();
+  }, [isLoggedIn]);
+  
+}
   
 //UseEffect is a hook that is called after the component is rendered
 //to perform some kind of side effect e.g data fetching, subscription to events, etc
@@ -35,9 +42,7 @@ console.log("posts", posts);
 //If dependency array is missing, use effect will be called on every render
 //When we provide empty dependency array, useEffect will be called only once
 //When we provide dependencies, if dependencies change, useEffect will be called again
-useEffect(() => {
-  fetchPosts();
-}, []);
+
 
 const userNotLoggedIn = (
   <h3 className="not-logged-in">
