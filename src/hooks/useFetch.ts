@@ -10,13 +10,22 @@ type Options = {
     method: string;
     headers: { [key: string]: string };
     body: string;
-}
+};
 //If there are no dependencies, we assume that we fetch only on first render.
-
-export const useEffect = (url: string, options: Options, dependencies?: [] ) => {
+export const useEffect = (
+    url: string, 
+    options: Options = {method: "GET", headers {}, body: ""},
+    dependencies?: Array<any> = [] 
+) => {
     const [response, setResponse] = useState({});
     const [error, setError] = useState<unknown>(null);
-
+    
+    //UseEffect is a hook that is called after the component is rendered
+    //to perform some kind of side effect e.g data fetching, subscription to events, etc
+    //UseEffect is a function that takes a function as an argument, returns a cleanup function
+    //If dependency array is missing, use effect will be called on every render
+    //When we provide empty dependency array, useEffect will be called only once
+    //When we provide dependencies, if dependencies change, useEffect will be called again
     useEffect(() => {
       const fetchData = async () => {
         try {
@@ -26,7 +35,10 @@ export const useEffect = (url: string, options: Options, dependencies?: [] ) => 
         } catch (err) {
             setError(err);
         }
-      };
+    };
+      fetchData();
     }, [url, options, dependencies]);
+
+    return { response, error };
 };
     
