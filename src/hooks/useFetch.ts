@@ -4,19 +4,10 @@
 //2. Hooks can only be called on the top level of your component.
 //3. Hooks should be called in the same order they are defined on every render
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-type Options = {
-    method: string;
-    headers: { [key: string]: string };
-    body: string;
-};
 //If there are no dependencies, we assume that we fetch only on first render.
-export const useEffect = (
-    url: string, 
-    options: Options = {method: "GET", headers {}, body: ""},
-    dependencies?: Array<any> = [] 
-) => {
+export const useFetch = (url: string) => {
     const [response, setResponse] = useState({});
     const [error, setError] = useState<unknown>(null);
     
@@ -29,7 +20,7 @@ export const useEffect = (
     useEffect(() => {
       const fetchData = async () => {
         try {
-            const res = await fetch(url, options);
+            const res = await fetch(url);
             const json = await res.json();
             setResponse(json);
         } catch (err) {
@@ -37,8 +28,8 @@ export const useEffect = (
         }
     };
       fetchData();
-    }, [url, options, dependencies]);
+    }, [url]);
 
-    return { response, error };
+    return { response, error : Error};
 };
     

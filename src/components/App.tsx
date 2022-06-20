@@ -1,7 +1,8 @@
 import "./App.css";
-import React, {useEffect, useState} from "react";
-import { Login } from "./Login/Login"
+import React, { useState} from "react";
+import { Login } from "./Login/Login";
 import { CharacterList } from "./CharacterList/CharacterList";
+import { useFetch } from "../hooks/useFetch";
 
 //react application can be represented as a tree of React components
 //This is a react root component
@@ -16,14 +17,23 @@ import { CharacterList } from "./CharacterList/CharacterList";
 
 export const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const { response, error} = useFetch{
-    "https://jsonplaceholder.typicode.com/posts"
-  };
+  const { response, error} = useFetch(
+    "https://jsonplaceholdser.typicode.com/posts"
+  );
 
 
-  if(error) {
+  if (!response) {
+    return <>Loading...</>;
+  }
+
+  if(error && error instanceof Error) {
     //We can use React.Fragment instead of div
-    return <>Error: {error} </>;
+    //In react we can not render objects or arrays
+    return <>Error: {error.message} </>;
+  }
+
+  if (response) {
+    console.log(response);
   }
 
 const userNotLoggedIn = (
