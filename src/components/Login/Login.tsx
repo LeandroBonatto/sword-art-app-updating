@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 
 const adminCredentials = {userName: "admin", password: "admin"};
 
@@ -20,16 +20,23 @@ export const Login = ( {setLoggedIn} : LoginProps ) => {
     //countRef.current is reference to the current value of count, e.g 0
     //1) value of the reference is persistent across re-renders
     //2) Changing value of the reference doesn't cause component to re-render
+    //Count ref is used to log key presses in the username input
     const countRef = useRef(0);
+    //We can also use refs to focus on some DOM element, usually input
+    const passwordRef = useRef<HTMLInputElement>(null);
+    
+    useEffect(() => {
+      passwordRef.current.focus();
+    }, []);
+
     //When we type something in an input, onchange event is triggered
     //To get the value of the input, we use event.target.value
     //You can create even handlers two ways: using an anonymours function
     //or using a named function
     const usernameHandler = (event: any) => {
-        console.log("Event", event);
         countRef.current++;
         console.log(event.target.value);
-        setUserName(event.target.value)
+        setUserName(event.target.value);
     };
 
     const loginHandler = (event: any) => {
@@ -42,7 +49,6 @@ export const Login = ( {setLoggedIn} : LoginProps ) => {
             setLoggedIn(false)
         }
     };
-    console.log("Component rendered with userName: " + userName);
 
     return (
         <div>
@@ -50,9 +56,10 @@ export const Login = ( {setLoggedIn} : LoginProps ) => {
             <input type="text" value={userName} onChange={usernameHandler} />
             <label>Passaword: </label>
             <input 
-            type="password" 
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+                ref={passwordRef}
+                type="password" 
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
             />
             <button onClick={loginHandler}>Login</button>
         </div>
