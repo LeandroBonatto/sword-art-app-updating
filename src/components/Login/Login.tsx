@@ -22,7 +22,17 @@ export const Login = ( {setLoggedIn} : LoginProps ) => {
     //Count ref is used to log key presses in the username input
     const countRef = useRef(0);
     //We can also use refs to focus on some DOM element, usually input
+    //It can be done in three steps:
+    //1) Create a ref
+    //2) We useEffect to focus on the element
     const passwordRef = useRef();
+    
+    useEffect(() => {
+        if (passwordRef.current){
+        passwordRef.current.focus();
+    }
+}, []);
+
     //When we type something in an input, onchange event is triggered
     //To get the value of the input, we use event.target.value
     //You can create even handlers two ways: using an anonymours function
