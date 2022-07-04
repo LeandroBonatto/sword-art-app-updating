@@ -59,15 +59,18 @@ export const Login = ( {setLoggedIn} : LoginProps ) => {
 
     return (
         <Flex justify={"center"} direction="column" align={"center"}>
-            <Text>User name: </Text>
+            <Text size={("lg")} mb="1%">User name: </Text>
             <Input 
             ref={inputRef}
             type="text" 
             value={userName} 
             width="50%"
-            onChange={usernameHandler} />
-            <Text>Passaword: </Text>
+            onChange={usernameHandler}
+            mb="2%"
+            />
+            <Text size={("lg")} mb="1%">Passaword: </Text>
             <Input 
+                mb="2%"
                 type="password" 
                 value={password}
                 width="50%"
