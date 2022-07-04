@@ -1,10 +1,10 @@
 import React from 'react'
-import { Text, Checkbox, CheckboxGroup, Stack } from "@chakra-ui/react";
+import { Text, Checkbox, CheckboxGroup, Flex, Stack } from "@chakra-ui/react";
 
-export const CharacterSelection = ({ characters: any }) => {
+export const CharacterSelection = ({ characters }) => {
   return (
-    <Stack spacing={5}>
-        <Text fontSize={"4x1"}>Select your champuons!</Text>
+    <Flex justify={"center"}align={"center"} direction={"column"}>
+        <Text fontSize={"4xl"}>Select your champions!</Text>
         <CheckboxGroup colorScheme="green">
             <Stack spacing={[1, 5]} direction={["column", "row"]}>
                 {characters.map((character: any) => (
@@ -14,6 +14,6 @@ export const CharacterSelection = ({ characters: any }) => {
                 ))}
             </Stack>
         </CheckboxGroup>
-    </Stack>
+    </Flex>
   );
 };

@@ -3,6 +3,7 @@ import React, { useState} from "react";
 import { Login } from "./Login/Login";
 import { CharacterList } from "./CharacterList/CharacterList";
 import { useFetch } from "../hooks/useFetch";
+import { CharacterSelection } from "./CharacterSelection/CharacterSelection";
 
 //react application can be represented as a tree of React components
 //This is a react root component

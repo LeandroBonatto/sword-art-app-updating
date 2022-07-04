@@ -1,3 +1,4 @@
+import { Tr } from '@chakra-ui/react';
 import React from 'react'
 import './CharacterListItem.css'
 
@@ -9,12 +10,12 @@ export const CharacterListItem = ({character, isChampion}) => {
     return (
         //When you use repeating elements in JSX, you should use key attribute
         //It is required for React to be able to update the element
-        <li key={name}>
-            <span className="character-name">{isChampion ? `Champion ${name}` : name}</span>
-            <span>{health}</span>
-            <span>{fraction}</span>
-            <span>{weapon}</span>
-            <span>{damagePerHit}</span>
-            </li>
+        <Tr key={name}>
+            <Td className="character-name">{isChampion ? `Champion ${name}` : name}</Td>
+            <Td isNumeric>{health}</Td>
+            <Td>{fraction}</Td>
+            <Td>{weapon}</Td>
+            <Td isNumeric>{damagePerHit}</Td>
+        </Tr>
         );
 }

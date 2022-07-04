@@ -8,7 +8,7 @@ export const CharacterList = (characters) => {
     //returns true if math.random is more than 0.5
   return (
     <Table>
-        <TableCaption>Imperial to metric conversion Factors</TableCaption>
+        <TableCaption>Character Table</TableCaption>
       <Thead>
         <tr>
           <th>Name</th>
