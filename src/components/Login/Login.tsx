@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 
 const adminCredentials = {userName: "admin", password: "admin"};
 
@@ -16,12 +16,19 @@ export const Login = ( {setLoggedIn} : LoginProps ) => {
     //UseState returns an array with two elements: state and the function to update it
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
+
+    //countRef.current is reference to the current value of count, e.g 0
+    //1) value of the reference is persistent across re-renders
+    //2) Changing value of the reference doesn't cause component to re-render
+    const countRef = useRef(0);
     //When we type something in an input, onchange event is triggered
     //To get the value of the input, we use event.target.value
     //You can create even handlers two ways: using an anonymours function
     //or using a named function
     const usernameHandler = (event: any) => {
         console.log("Event", event);
+        countRef.current++;
+        console.log(event.target.value);
         setUserName(event.target.value)
     };
 
