@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 
-import { Input, Stack, Text } from "@chakra-ui/react";
+import { Button, Input, Stack, Text } from "@chakra-ui/react";
 
 const adminCredentials = {userName: "admin", password: "admin"};
 
@@ -71,7 +71,7 @@ export const Login = ( {setLoggedIn} : LoginProps ) => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
             />
-            <button onClick={loginHandler}>Login</button>
+            <Button colorScheme={'blue'} onClick={loginHandler}>Login</Button>
         </Stack>
     );
 };
