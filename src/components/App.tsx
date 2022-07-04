@@ -64,7 +64,7 @@ const userNotLoggedIn = (
   <div className="App" >
     {!isLoggedIn ? <Login setLoggedIn={setIsLoggedIn} /> : null}
     {isLoggedIn ? <CharacterList characters={characters} /> : userNotLoggedIn}
-    {isLoggedIn ? <CharacterList characters={characters} /> : null}       
+    {isLoggedIn ? <CharacterSelection characters={characters} /> : null}       
   </div>
   );
 };

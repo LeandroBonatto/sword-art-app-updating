@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text, Checkbox, CheckboxGroup, Stack } from "@chakra-ui/react";
 
-export const CharacterSelection = ({ characters }) => {
+export const CharacterSelection = ({ characters: any }) => {
   return (
     <Stack spacing={5}>
         <Text fontSize={"4xl"}>Select your champuons!</Text>
