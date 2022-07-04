@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 
-import { Input, Stack } from "@chakra-ui/react";
+import { Input, Stack, Text } from "@chakra-ui/react";
 
 const adminCredentials = {userName: "admin", password: "admin"};
 
@@ -58,14 +58,14 @@ export const Login = ( {setLoggedIn} : LoginProps ) => {
     };
 
     return (
-        <Stack>
-            <label>User name: </label>
+        <Stack spacing={3}>
+            <Text>User name: </Text>
             <input 
             ref={inputRef}
             type="text" 
             value={userName} 
             onChange={usernameHandler} />
-            <label>Passaword: </label>
+            <Text>Passaword: </Text>
             <input 
                 type="password" 
                 value={password}
