@@ -25,11 +25,12 @@ export const Login = ( {setLoggedIn} : LoginProps ) => {
     //It can be done in three steps:
     //1) Create a ref
     //2) We useEffect to focus on the element
-    const passwordRef = useRef();
+    //3) We use ref attribute to point to the element, in out case to the input
+    const inputRef = useRef<HTMLInputElement>(null);
     
     useEffect(() => {
-        if (passwordRef.current){
-        passwordRef.current.focus();
+        if (inputRef.current){
+        inputRef.current.focus();
     }
 }, []);
 
@@ -57,10 +58,13 @@ export const Login = ( {setLoggedIn} : LoginProps ) => {
     return (
         <div>
             <label>User name: </label>
-            <input type="text" value={userName} onChange={usernameHandler} />
+            <input 
+            ref={inputRef}
+            type="text" 
+            value={userName} 
+            onChange={usernameHandler} />
             <label>Passaword: </label>
             <input 
-                ref={passwordRef}
                 type="password" 
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
