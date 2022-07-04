@@ -5,7 +5,6 @@ const adminCredentials = {userName: "admin", password: "admin"};
 interface LoginProps {
     setLoggedIn: (isLoggedIn: boolean) => void;
 }
-
 //In React we have two main types of components: stateless and stateful
 //1. User types his login and password and clicks login button
 //2. If the login password combination is correct, the user is redirected to the character
@@ -23,19 +22,14 @@ export const Login = ( {setLoggedIn} : LoginProps ) => {
     //Count ref is used to log key presses in the username input
     const countRef = useRef(0);
     //We can also use refs to focus on some DOM element, usually input
-    const passwordRef = useRef<HTMLInputElement>(null);
-    
-    useEffect(() => {
-      passwordRef.current.focus();
-    }, []);
-
+    const passwordRef = useRef();
     //When we type something in an input, onchange event is triggered
     //To get the value of the input, we use event.target.value
     //You can create even handlers two ways: using an anonymours function
     //or using a named function
     const usernameHandler = (event: any) => {
         countRef.current++;
-        console.log(event.target.value);
+        console.log("count", countRef.current);
         setUserName(event.target.value);
     };
 
