@@ -42,7 +42,6 @@ export const Login = ( {setLoggedIn} : LoginProps ) => {
     //or using a named function
     const usernameHandler = (event: any) => {
         countRef.current++;
-        console.log("count", countRef.current);
         setUserName(event.target.value);
     };
 

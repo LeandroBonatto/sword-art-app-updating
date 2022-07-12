@@ -4,6 +4,7 @@ import { Login } from "./Login/Login";
 import { CharacterList } from "./CharacterList/CharacterList";
 import { useFetch } from "../hooks/useFetch";
 import { CharacterSelection } from "./CharacterSelection/CharacterSelection";
+import { CharactersScreen } from "./CharactersScreen";
 
 //react application can be represented as a tree of React components
 //This is a react root component
@@ -56,16 +57,11 @@ export const App = () => {
     return <>Error: {error.message} </>;
   }
 
-const userNotLoggedIn = (
-  <h3 className="not-logged-in">
-    Please log in as admin to see character list
-    </h3>
 );
   return (
   <div className="App" >
     {!isLoggedIn ? <Login setLoggedIn={setIsLoggedIn} /> : null}
-    {isLoggedIn ? <CharacterList characters={characters} /> : userNotLoggedIn}
-    {isLoggedIn ? <CharacterSelection characters={characters} /> : null}       
+    {isLoggedIn ? <CharactersScreen characters={characters} /> : null}
   </div>
   );
 };
