@@ -2,11 +2,19 @@ import React from 'react'
 import { CharacterList } from "./CharacterList/CharacterList";
 import { CharacterSelection } from "./CharacterSelection/CharacterSelection";
 
-export const CharactersScreen = ({ characters }) => {
+export const CharactersScreen = ({ 
+    characters, 
+    setFightStart, 
+    setBattleCharacters,
+}) => {
     return(
         <>
             <CharacterList characters={characters} />
-            <CharacterList character={characters} />
+            <CharacterSelection 
+            characters={characters} 
+            setFightStart={setFightStart} 
+            setBattleCharacters={setBattleCharacters} 
+            />
         </>
     );
 };

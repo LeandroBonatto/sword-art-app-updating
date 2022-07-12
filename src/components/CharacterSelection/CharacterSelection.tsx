@@ -1,8 +1,14 @@
 import React, { useState } from "react";
-import { Text, Checkbox, CheckboxGroup, Flex, Stack, Button } 
+import { 
+    Text, 
+    Checkbox, 
+    CheckboxGroup, 
+    Flex, 
+    Stack, 
+    Button } 
 from "@chakra-ui/react";
 
-export const CharacterSelection = ({ characters }) => {
+export const CharacterSelection = ({ characters, setFightStart, setBattleCharacters }) => {
     const [heroesSelected, setHeroesSelected] = useState<Array<string>>([]);
     //By using onChange handler we react to the change of the checkbox and either add or
     //remove the value from the state array 
@@ -14,7 +20,12 @@ export const CharacterSelection = ({ characters }) => {
             setHeroesSelected([...heroesSelected, hero]);
         }
     };
-    console.log(heroesSelected);
+
+    const onFightStart = () => {
+        setFightStart(true);
+        setBattleCharacters(characters.filter((character) => heroesSelected.includes(character.name)))
+}
+console.log(heroesSelected);
   return (
     <Flex justify={"center"}align={"center"} direction={"column"}>
         <Text fontSize={"4xl"}>Select your champions!</Text>
@@ -32,7 +43,10 @@ export const CharacterSelection = ({ characters }) => {
                 ))}
             </Stack>
         </CheckboxGroup>
-        <Button mt={"3%"} colorScheme="red" variant="solid">
+        <Button mt={"3%"} 
+        colorScheme="red" 
+        variant="solid" 
+        onClick={onFightStart}>
         Start the battle!
         </Button>
     </Flex>
