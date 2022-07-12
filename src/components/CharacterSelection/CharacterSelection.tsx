@@ -2,6 +2,10 @@ import React from 'react'
 import { Text, Checkbox, CheckboxGroup, Flex, Stack } from "@chakra-ui/react";
 
 export const CharacterSelection = ({ characters }) => {
+    const [heroesSelected, setHeroesSelected] = useState([]);
+    const onHeroChanged = (event, hero) => {
+    };
+
   return (
     <Flex justify={"center"}align={"center"} direction={"column"}>
         <Text fontSize={"4xl"}>Select your champions!</Text>
