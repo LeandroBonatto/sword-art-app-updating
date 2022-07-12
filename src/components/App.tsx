@@ -1,10 +1,8 @@
-import "./App.css";
 import React, { useState} from "react";
-import { Login } from "./Login/Login";
-import { CharacterList } from "./CharacterList/CharacterList";
 import { useFetch } from "../hooks/useFetch";
-import { CharacterSelection } from "./CharacterSelection/CharacterSelection";
+import "./App.css";
 import { CharactersScreen } from "./CharactersScreen";
+import { Login } from "./Login/Login";
 
 //react application can be represented as a tree of React components
 //This is a react root component
@@ -19,6 +17,8 @@ import { CharactersScreen } from "./CharactersScreen";
 
 export const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isFightGoingOn, setFightStart] = useState(false);
+  const [battleCharacters, setBattleCharacters] = useState([]);
   const characters = [
     {
       name: "Goku", 
@@ -46,7 +46,6 @@ export const App = () => {
     "https://jsonplaceholder.typicode.com/posts"
   );
 
-
   if (!response) {
     return <>Loading...</>;
   }
@@ -57,11 +56,11 @@ export const App = () => {
     return <>Error: {error.message} </>;
   }
 
-);
   return (
   <div className="App" >
     {!isLoggedIn ? <Login setLoggedIn={setIsLoggedIn} /> : null}
-    {isLoggedIn ? <CharactersScreen characters={characters} /> : null}
+    {isLoggedIn && !isFightGoingOn ? <CharactersScreen characters={characters} 
+    setFightStart={setFightStart} setBattleCharacters={setBattleCharacters} /> : null}
   </div>
   );
 };
