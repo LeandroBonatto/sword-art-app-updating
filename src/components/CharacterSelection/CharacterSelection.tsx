@@ -8,7 +8,7 @@ export const CharacterSelection = ({ characters }) => {
         <CheckboxGroup colorScheme="green">
             <Stack spacing={[1, 5]} direction={["column", "row"]}>
                 {characters.map((character: any) => (
-                    <Checkbox value={character.name} key={character.name}>
+                    <Checkbox isChecked value={character.name} key={character.name}>
                         {character.name}
                     </Checkbox>
                 ))}
