@@ -1,10 +1,14 @@
-import React from "react";
+import React, {useState} from "react";
 import { Box, Text, Flex } from "@chakra-ui/react";
 
 export const Battleground = ({ battleCharacters }) => {
     const [fighter1, fighter2] = battleCharacters;
     const [firstFighterState, setFirstFighterState] = React.useState(fighter1);
     const [secondFighterState, setSecondFighterState] = React.useState(fighter2);
+    const [winner, setWinner] = useState(null);
+
+    
+
     return (
         <Flex justify={"center"}align={"center"} direction={"column"} h="90vh">
             <text mt="2%" fontSize={"3xl"} fontWeight="700" >
