@@ -8,13 +8,14 @@ export const Battleground = ({ battleCharacters }) => {
     const [winner, setWinner] = useState(null);
 
     const handleFirstFighterAttack = () => {
+        if (secondFighterState.health - damagePerHit <= 0) {
         setSecondFighterState({
             ...secondFighterState,
             health: secondFighterState.health - firstFighterState.damagePerHit,
         });
     };
 
-    
+    const handleSecondFighterAttack = () => {};
     return (
         <Flex justify={"center"}align={"center"} direction={"column"} h="90vh">
             <text mt="2%" fontSize={"3xl"} fontWeight="700" >
