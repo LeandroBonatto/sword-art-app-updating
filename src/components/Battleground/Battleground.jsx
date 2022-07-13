@@ -9,6 +9,8 @@ export const Battleground = ({ battleCharacters, setWinner }) => {
 
     const handleFirstFighterAttack = () => {
         if (secondFighterState.health - firstFighterState.damagePerHit <= 0) {
+            setWinner(firstFighterState.name);
+        }
         //we need to check prior to the state update, because state update is async
         setSecondFighterState({
             ...secondFighterState,
@@ -16,7 +18,16 @@ export const Battleground = ({ battleCharacters, setWinner }) => {
         });
     };
 
-    const handleSecondFighterAttack = () => {};
+    const handleSecondFighterAttack = () => {
+        if (firstFighterState.health - secondFighterState.damagePerHit <= 0) {
+            setWinner(secondFighterState.name);
+        }
+        //we need to check prior to the state update, because state update is async
+        setSecondFighterState({
+            ...firstFighterState,
+            health: firstFighterState.health - secondFighterState.damagePerHit,
+        });
+    };
     return (
         <Flex justify={"center"}align={"center"} direction={"column"} h="90vh">
             <text mt="2%" fontSize={"3xl"} fontWeight="700" >
