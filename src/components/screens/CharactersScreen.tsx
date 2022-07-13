@@ -1,6 +1,6 @@
 import React from 'react'
-import { CharacterList } from "./CharacterList/CharacterList";
-import { CharacterSelection } from "./CharacterSelection/CharacterSelection";
+import { CharacterList } from "../CharacterList/CharacterList";
+import { CharacterSelection } from "../CharacterSelection/CharacterSelection";
 
 export const CharactersScreen = ({ 
     characters, 

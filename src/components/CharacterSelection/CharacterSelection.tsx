@@ -5,11 +5,18 @@ import {
     CheckboxGroup, 
     Flex, 
     Stack, 
-    Button } 
-from "@chakra-ui/react";
+    Button, 
+    Alert,
+    AlertIcon,
+} from "@chakra-ui/react";
 
-export const CharacterSelection = ({ characters, setFightStart, setBattleCharacters }) => {
+export const CharacterSelection = ({ 
+    characters, 
+    setFightStart, 
+    setBattleCharacters 
+}) => {
     const [heroesSelected, setHeroesSelected] = useState<Array<string>>([]);
+    const [isAlertVisible, setIsAlertVisible] = useState(false);
     //By using onChange handler we react to the change of the checkbox and either add or
     //remove the value from the state array 
     const onHeroChanged = (event) => {
@@ -21,11 +28,24 @@ export const CharacterSelection = ({ characters, setFightStart, setBattleCharact
         }
     };
 
-    const onFightStart = () => {
+    const onFightStart = (e) => {
+        if (heroesSelected.length !== 2) {
+            setIsAlertVisible(true);
+            return;
+        }
+        setIsAlertVisible(false);
         setFightStart(true);
-        setBattleCharacters(characters.filter((character) => heroesSelected.includes(character.name)))
-}
-console.log(heroesSelected);
+        setBattleCharacters(
+            characters.filter((character) => heroesSelected.includes(character.name))
+    );
+};
+
+const alert = (
+    <Alert status="error">
+        <AlertIcon />
+        Please select only two heroes!
+    </Alert>
+);
   return (
     <Flex justify={"center"}align={"center"} direction={"column"}>
         <Text fontSize={"4xl"}>Select your champions!</Text>
@@ -43,12 +63,15 @@ console.log(heroesSelected);
                 ))}
             </Stack>
         </CheckboxGroup>
-        <Button mt={"3%"} 
+        <Button 
+        mt={"3%"} 
+        mb={"3%"}
         colorScheme="red" 
         variant="solid" 
         onClick={onFightStart}>
         Start the battle!
         </Button>
+        {isAlertVisible && alert}
     </Flex>
   );
 };

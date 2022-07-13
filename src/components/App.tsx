@@ -1,7 +1,7 @@
 import React, { useState} from "react";
 import { useFetch } from "../hooks/useFetch";
 import "./App.css";
-import { CharactersScreen } from "./CharactersScreen";
+import { CharactersScreen } from "./screens/CharactersScreen";
 import { Login } from "./Login/Login";
 
 //react application can be represented as a tree of React components
@@ -55,12 +55,18 @@ export const App = () => {
     //In react we can not render objects or arrays
     return <>Error: {error.message} </>;
   }
+  console.log("Selected characters", battleCharacters);
 
   return (
   <div className="App" >
     {!isLoggedIn ? <Login setLoggedIn={setIsLoggedIn} /> : null}
-    {isLoggedIn && !isFightGoingOn ? <CharactersScreen characters={characters} 
-    setFightStart={setFightStart} setBattleCharacters={setBattleCharacters} /> : null}
+    {isLoggedIn && !isFightGoingOn ? (
+    <CharactersScreen 
+    characters={characters} 
+    setFightStart={setFightStart} 
+    setBattleCharacters={setBattleCharacters} 
+    /> 
+    ) : null}
   </div>
   );
 };
