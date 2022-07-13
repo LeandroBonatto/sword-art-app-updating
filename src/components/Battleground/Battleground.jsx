@@ -9,6 +9,7 @@ export const Battleground = ({ battleCharacters }) => {
 
     const handleFirstFighterAttack = () => {
         if (secondFighterState.health - damagePerHit <= 0) {
+        //we need to check prior to the state update, because state update is async
         setSecondFighterState({
             ...secondFighterState,
             health: secondFighterState.health - firstFighterState.damagePerHit,
