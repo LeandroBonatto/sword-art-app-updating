@@ -22,7 +22,8 @@ export const Battleground = ({ battleCharacters }) => {
                 {firstFighterState.damagePerHit}
             </text>
             <text mt="35%" fontSize={"2xl"} fontWeight="500" >
-            Let's get ready to the fight
+                {secondFighterState.name} strikes {firstFighterState.name} for{" "}
+                {secondFighterState.damagePerHit}
             </text>
             </Box>
         </Flex>
