@@ -3,6 +3,7 @@ import { useFetch } from "../hooks/useFetch";
 import "./App.css";
 import { CharactersScreen } from "./screens/CharactersScreen";
 import { Login } from "./Login/Login";
+import { Battleground } from "./Battleground/Battleground";
 
 //react application can be represented as a tree of React components
 //This is a react root component
@@ -67,6 +68,9 @@ export const App = () => {
     setBattleCharacters={setBattleCharacters} 
     /> 
     ) : null}
+    {isFightGoingOn ? (
+    <Battleground battleCharacters={battleCharacters} /> 
+    ) : null
   </div>
   );
 };
