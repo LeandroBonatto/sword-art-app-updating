@@ -11,5 +11,9 @@ export const useInterval = (
         if (!timeInterval || timeInterval === 0) {
             return;
         }
-    }
+
+        const id = setInterval(() => savedCallBack.current(), timeInterval);
+
+        return() => clearInterval(id);
+    }, [timeInterval]);
 };
