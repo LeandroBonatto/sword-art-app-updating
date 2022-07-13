@@ -1,14 +1,14 @@
 import React, {useState} from "react";
 import { Box, Text, Flex } from "@chakra-ui/react";
 
-export const Battleground = ({ battleCharacters }) => {
+export const Battleground = ({ battleCharacters, setWinner }) => {
     const [fighter1, fighter2] = battleCharacters;
     const [firstFighterState, setFirstFighterState] = React.useState(fighter1);
     const [secondFighterState, setSecondFighterState] = React.useState(fighter2);
     const [winner, setWinner] = useState(null);
 
     const handleFirstFighterAttack = () => {
-        if (secondFighterState.health - damagePerHit <= 0) {
+        if (secondFighterState.health - firstFighterState.damagePerHit <= 0) {
         //we need to check prior to the state update, because state update is async
         setSecondFighterState({
             ...secondFighterState,

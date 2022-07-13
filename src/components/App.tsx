@@ -4,6 +4,7 @@ import "./App.css";
 import { CharactersScreen } from "./screens/CharactersScreen";
 import { Login } from "./Login/Login";
 import { Battleground } from "./Battleground/Battleground";
+import {Text} from "@chakra-ui/react";
 
 //react application can be represented as a tree of React components
 //This is a react root component
@@ -20,6 +21,7 @@ export const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isFightGoingOn, setFightStart] = useState(false);
   const [battleCharacters, setBattleCharacters] = useState([]);
+  const [winner, setWinner] = useState(null);
   const characters = [
     {
       name: "Goku", 
@@ -69,8 +71,14 @@ export const App = () => {
     /> 
     ) : null}
     {isFightGoingOn ? (
-    <Battleground battleCharacters={battleCharacters} /> 
+    <Battleground
+     setWinner={setWinner} 
+     battleCharacters={battleCharacters}
+     /> 
     ) : null
+    {isFightGoingOn && winner ? (
+      <Text>Winner of the battle is {winner}</Text>
+   ) : null}
   </div>
   );
 };
