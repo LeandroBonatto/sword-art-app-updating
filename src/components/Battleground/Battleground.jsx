@@ -18,7 +18,7 @@ export const Battleground = ({ battleCharacters }) => {
             </Text>
             <Box w="80%" h="100%" mt="3%" border="0.5rem solid black">
             <text mt="2%" fontSize={"2xl"} fontWeight="600" >
-            Let's get ready to the fight
+                {firstFighterState.name} strikes {secondFighterState.health}
             </text>
             <text mt="35%" fontSize={"2xl"} fontWeight="500" >
             Let's get ready to the fight
