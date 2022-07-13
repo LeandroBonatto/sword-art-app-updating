@@ -7,8 +7,14 @@ export const Battleground = ({ battleCharacters }) => {
     const [secondFighterState, setSecondFighterState] = React.useState(fighter2);
     const [winner, setWinner] = useState(null);
 
-    
+    const handleFirstFighterAttack = () => {
+        setSecondFighterState({
+            ...secondFighterState,
+            health: secondFighterState.health - firstFighterState.damagePerHit,
+        });
+    };
 
+    
     return (
         <Flex justify={"center"}align={"center"} direction={"column"} h="90vh">
             <text mt="2%" fontSize={"3xl"} fontWeight="700" >
