@@ -22,6 +22,7 @@ export const Battleground = ({ battleCharacters, setWinner }) => {
     useInterval(() => handleFightersClash(), 4000);
 
     const handleSecondFighterAttack = () => {
+        const {name, damagePerHit} = fighterTwo
         setFirstAttacks(false)
         setSecondAttacks(true)
         if (fighterOne.health - secondFighterState.damagePerHit <= 0) {
