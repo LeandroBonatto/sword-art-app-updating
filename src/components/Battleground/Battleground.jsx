@@ -36,16 +36,16 @@ export const Battleground = ({ battleCharacters, setWinner }) => {
             Let's get ready to the fight
             </text>
             <Text mt="2%" fontSize={"2xl"} fontWeight="600">
-                {firstFighterState.name} health: {firstFighterState.health}
+                {fighterOne.name} health: {fighterOne.health}
             </Text>
             <Text mt="2%" fontSize={"2xl"} fontWeight="600">
-                {secondFighterState.name} health: {secondFighterState.health}
+                {fighterTwo.name} health: {fighterTwo.health}
             </Text>
             {sencondAttacks ? (
             <Box w="80%" h="100%" mt="3%" border="0.5rem solid black">
             <text mt="2%" fontSize={"2xl"} fontWeight="600" >
-                {firstFighterState.name} strikes {secondFighterState.name} for{" "}
-                {firstFighterState.damagePerHit}
+                {fighterOne.name} strikes {fighterTwo.name} for{" "}
+                {fighterOne.damagePerHit}
             </text>
             ) : null}
             {sencondAttacks ? (
