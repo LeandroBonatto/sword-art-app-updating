@@ -2,27 +2,24 @@ import React, {useState} from "react";
 import { Box, Text, Flex, useInterval } from "@chakra-ui/react";
 
 export const Battleground = ({ battleCharacters, setWinner }) => {
-    const [fighter1, fighter2] = battleCharacters;
-    const [firstFighterState, setFirstFighterState] = useState(fighter1);
-    const [secondFighterState, setSecondFighterState] = useState(fighter2);
+    const [fighterOne, fighterTwo] = battleCharacters;
     const [firstAttacks, setFirstAttacks] = useState(false);
     const [sencondAttacks, setSecondAttacks] = useState(false);
+    const attacksByFighterOne = useRef(0);
+    const attacksByFighterTwo = useRef(0);
 
     const handleFightersClash = () => {
+        const {name, damagePerHit} = fightOne
         setSecondAttacks(false);
         setFirstAttacks(true);
-        if (secondFighterState.health - firstFighterState.damagePerHit <= 0) {
-            setWinner(firstFighterState.name);
+        if (fighterTwo.health - damagePerHit * attacksByFighterOne <= 0) {
+            setWinner(name);
         }
         //we need to check prior to the state update, because state update is async
-        setSecondFighterState({
-            ...secondFighterState,
-            health: secondFighterState.health - firstFighterState.damagePerHit,
-        });
         setTimeout(() => handleSecondFighterAttack(), 2000);
     };
 
-    useInterval(handleFightersClash, 4000);
+    useInterval(() => handleFightersClash(), 4000);
 
     const handleSecondFighterAttack = () => {
         setFirstAttacks(false)
@@ -36,6 +33,9 @@ export const Battleground = ({ battleCharacters, setWinner }) => {
             health: firstFighterState.health - secondFighterState.damagePerHit,
         });
     }
+
+    console.log(firstFighterState.health);
+    console.log(secondFighterState.health);
 
     return (
         <Flex justify={"center"}align={"center"} direction={"column"} h="90vh">
