@@ -26,7 +26,7 @@ export const Battleground = ({ battleCharacters, setWinner }) => {
         setFirstAttacks(false)
         setSecondAttacks(true)
         if (fighterOne.health - damagePerHit * attacksByFighterTwo <= 0) {
-            setWinner(secondFighterState.name);
+            setWinner(name);
         }
     };
 
