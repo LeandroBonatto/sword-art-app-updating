@@ -72,6 +72,7 @@ port const App = () => {
     ) : null}
     {isFightGoingOn ? (
     <Battleground
+    winner={winner}
      setWinner={setWinner} 
      battleCharacters={battleCharacters}
      /> 

@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { Box, Text, Flex, useInterval } from "@chakra-ui/react";
 
-export const Battleground = ({ battleCharacters, setWinner }) => {
+export const Battleground = ({ battleCharacters, setWinner, winner }) => {
     const [fighterOne, fighterTwo] = battleCharacters;
     const [firstAttacks, setFirstAttacks] = useState(false);
     const [sencondAttacks, setSecondAttacks] = useState(false);
@@ -21,7 +21,8 @@ export const Battleground = ({ battleCharacters, setWinner }) => {
         setTimeout(() => handleSecondFighterAttack(), 2000);
     };
 
-    useInterval(() => handleFightersClash(), 4000);
+
+    useInterval(() => handleFightersClash(), winner ? null : 4000);
 
     const handleSecondFighterAttack = () => {
         const {name, damagePerHit} = fighterTwo
