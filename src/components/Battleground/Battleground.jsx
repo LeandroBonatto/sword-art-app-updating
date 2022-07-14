@@ -12,7 +12,9 @@ export const Battleground = ({ battleCharacters, setWinner }) => {
         const {name, damagePerHit} = fightOne
         setSecondAttacks(false);
         setFirstAttacks(true);
-        if (fighterTwo.health - damagePerHit * attacksByFighterOne <= 0) {
+        //We can check right after, because refs are updated synchronously
+        attacksByFighterOne.current += 1;
+        if (fighterTwo.health - damagePerHit * attacksByFighterOne.current <= 0) {
             setWinner(name);
         }
         //we need to check prior to the state update, because state update is async
@@ -25,6 +27,7 @@ export const Battleground = ({ battleCharacters, setWinner }) => {
         const {name, damagePerHit} = fighterTwo
         setFirstAttacks(false)
         setSecondAttacks(true)
+        attacksByFighterTwo.current += 1;
         if (fighterOne.health - damagePerHit * attacksByFighterTwo <= 0) {
             setWinner(name);
         }
