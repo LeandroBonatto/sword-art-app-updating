@@ -50,8 +50,8 @@ export const Battleground = ({ battleCharacters, setWinner }) => {
             ) : null}
             {sencondAttacks ? (
             <text mt="35%" fontSize={"2xl"} fontWeight="500" >
-                {secondFighterState.name} strikes {firstFighterState.name} for{" "}
-                {secondFighterState.damagePerHit}
+                {fighterTwo.name} strikes {fighterOne.name} for{" "}
+                {fighterTwo.damagePerHit}
             </text>
             ) : null}
             </Box>
