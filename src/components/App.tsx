@@ -17,7 +17,7 @@ import {Text} from "@chakra-ui/react";
 //we can see the character list, otherwise we see the simple message like
 //"You are not logged in"
 
-export const App = () => {
+port const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isFightGoingOn, setFightStart] = useState(false);
   const [battleCharacters, setBattleCharacters] = useState([]);
@@ -28,21 +28,21 @@ export const App = () => {
       health: 100, 
       fraction: "Saiyan", 
       weapon: "Ki", 
-      damagePerHit: 10
+      damagePerHit: 25,
     },
     {
       name: "Bobrik", 
       health: 150, 
       fraction: "Random", 
       weapon: "Bow", 
-      damagePerHit: 6
+      damagePerHit: 19,
     },
     {
       name: "Valera", 
       health: 80, 
       fraction: "Ukraine", 
       weapon: "Tanto", 
-      damagePerHit: 15
+      damagePerHit: 15,
     },
 ];
   const { response, error} = useFetch(

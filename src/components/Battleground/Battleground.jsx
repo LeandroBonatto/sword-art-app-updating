@@ -28,10 +28,11 @@ export const Battleground = ({ battleCharacters, setWinner }) => {
         setFirstAttacks(false)
         setSecondAttacks(true)
         attacksByFighterTwo.current += 1;
-        if (fighterOne.health - damagePerHit * attacksByFighterTwo <= 0) {
+        if (fighterOne.health - damagePerHit * attacksByFighterTwo.current <= 0) {
             setWinner(name);
         }
     };
+
 
     return (
         <Flex justify={"center"}align={"center"} direction={"column"} h="90vh">
@@ -39,10 +40,14 @@ export const Battleground = ({ battleCharacters, setWinner }) => {
             Let's get ready to the fight
             </text>
             <Text mt="2%" fontSize={"2xl"} fontWeight="600">
-                {fighterOne.name} health: {fighterOne.health}
+                {fighterOne.name} health:{" "} 
+                    {fighterOne.health -
+                fighterTwo.damagePerHit * attacksByFighterTwo.current}
             </Text>
             <Text mt="2%" fontSize={"2xl"} fontWeight="600">
-                {fighterTwo.name} health: {fighterTwo.health}
+                {fighterTwo.name} health:{" "} 
+                {fighterTwo.health -
+                    fighterOne.damagePerHit * attacksByFighterOne.current}
             </Text>
             {sencondAttacks ? (
             <Box w="80%" h="100%" mt="3%" border="0.5rem solid black">
