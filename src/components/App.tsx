@@ -76,9 +76,10 @@ port const App = () => {
      battleCharacters={battleCharacters}
      /> 
     ) : null
-    {isFightGoingOn && winner ? (
-      <Text>Winner of the battle is {winner}</Text>
-   ) : null}
+    {isFightGoingOn && !winner ? (
+      <Text fontSize={"5xl"} fontWeight"800">
+      Winner of the battle is {winner}</Text>
+    ) : null}
   </div>
   );
 };
