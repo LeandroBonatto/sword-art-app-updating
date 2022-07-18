@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import { Box, Text, Flex } from "@chakra-ui/react";
-import { useInterval } from "../../hooks/useinterval";
+import { useInterval } from "../hooks/useinterval";
 
-export const Battleground = ({ battleCharacters, setWinner, winner }) => {
+export const BattlegroundScreen = ({ battleCharacters, setWinner, winner }) => {
     const [fighterOne, fighterTwo] = battleCharacters;
     const [firstAttacks, setFirstAttacks] = useState(false);
     const [sencondAttacks, setSecondAttacks] = useState(false);

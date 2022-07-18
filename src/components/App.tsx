@@ -2,9 +2,9 @@ import { useState} from "react";
 import { useFetch } from "../hooks/useFetch";
 import "./App.css";
 import { CharactersScreen } from "../screens/CharactersScreen";
-import { Battleground } from "./Battleground/Battleground";
 import { WinnerScreen } from "../screens/WinnerScreen";
 import { LoginScreen } from "../screens/LoginScreen";
+import { BattlegroundScreen } from "../screens/BattlegroundScreen";
 
 //react application can be represented as a tree of React components
 //This is a react root component
@@ -71,7 +71,7 @@ export const App = () => {
     /> 
     ) : null}
     {isFightGoingOn ? (
-    <Battleground
+    <BattlegroundScreen
     winner={winner}
      setWinner={setWinner} 
      battleCharacters={battleCharacters}
