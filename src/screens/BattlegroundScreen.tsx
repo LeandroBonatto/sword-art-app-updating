@@ -12,7 +12,7 @@ export const BattlegroundScreen = ({ isLoggedIn, battleCharacters, setWinner, wi
     const navigate = useNavigate();
 
     if(!isLoggedIn) {
-        navigate("/login");
+        navigate("/");
     }
 
     const handleFightersClash = () => {
@@ -23,6 +23,7 @@ export const BattlegroundScreen = ({ isLoggedIn, battleCharacters, setWinner, wi
         attacksByFighterOne.current += 1;
         if (fighterTwo.health - damagePerHit * attacksByFighterOne.current <= 0) {
             setWinner(name);
+            navigate("/winner");
             return;
         }
         //we need to check prior to the state update, because state update is async
@@ -39,6 +40,7 @@ export const BattlegroundScreen = ({ isLoggedIn, battleCharacters, setWinner, wi
         attacksByFighterTwo.current += 1;
         if (fighterOne.health - damagePerHit * attacksByFighterTwo.current <= 0) {
             setWinner(name);
+            navigate("/winner")
             return;
         }
     };
