@@ -72,9 +72,9 @@ export const App = () => {
     ) : null}
     {isFightGoingOn ? (
     <BattlegroundScreen
-    winner={winner}
-     setWinner={setWinner} 
-     battleCharacters={battleCharacters}
+      winner={winner}
+      setWinner={setWinner} 
+      battleCharacters={battleCharacters}
      /> 
     ) : null
     {isFightGoingOn && winner ? (
