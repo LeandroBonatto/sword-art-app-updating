@@ -74,7 +74,7 @@ export const App = () => {
         path="/characters" 
         element={
         <CharactersScreen 
-          isLoggedIn = {isLoggedIn}
+          isLoggedIn={isLoggedIn}
           characters={characters}
           setFightStart={setFightStart}
           setBattleCharacters={setBattleCharacters}
@@ -83,7 +83,7 @@ export const App = () => {
         />
         <Route 
         path="/winner" 
-        element={<WinnerScreen winner={winner} />} />
+        element={<WinnerScreen isLoggedIn={isLoggedIn} winner={winner} />} />
         <Route path="/battleground" element={<BattlegroundScreen setWinner={setWinner} />}/>
     </BrowserRouter>
   </div>
