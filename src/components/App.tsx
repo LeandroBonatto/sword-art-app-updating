@@ -64,7 +64,8 @@ export const App = () => {
   return (
   <div className="App" >
     <BrowserRouter>
-        <Route path="/" element={<App/>}/>
+        <Route 
+        path="/" element={<App/>}/>
         <Route 
         path="/login" 
         element={<LoginScreen setLoggedIn={setIsLoggedIn}} />}
