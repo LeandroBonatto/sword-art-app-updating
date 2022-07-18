@@ -1,7 +1,7 @@
 import React, { useState} from "react";
 import { useFetch } from "../hooks/useFetch";
 import "./App.css";
-import { CharactersScreen } from "./screens/CharactersScreen";
+import { CharactersScreen } from "../screens/CharactersScreen";
 import { Login } from "./Login/Login";
 import { Battleground } from "./Battleground/Battleground";
 import {Text} from "@chakra-ui/react";
@@ -77,9 +77,10 @@ port const App = () => {
      battleCharacters={battleCharacters}
      /> 
     ) : null
-    {isFightGoingOn && !winner ? (
+    {isFightGoingOn && winner ? (
       <Text fontSize={"5xl"} fontWeight"800">
-      Winner of the battle is {winner}</Text>
+        Winner of the battle is {winner}
+      </Text>
     ) : null}
   </div>
   );
