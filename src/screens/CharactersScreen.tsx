@@ -19,7 +19,6 @@ export const CharactersScreen = ({
             <CharacterList characters={characters} />
             <CharacterSelection 
             characters={characters} 
-            setFightStart={setFightStart} 
             setBattleCharacters={setBattleCharacters} 
             />
         </>

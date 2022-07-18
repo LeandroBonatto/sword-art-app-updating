@@ -20,7 +20,6 @@ import { ChakraProvider } from "@chakra-ui/react";
 //"You are not logged in"
 export const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isFightGoingOn, setFightStart] = useState(false);
   const [battleCharacters, setBattleCharacters] = useState([]);
   const [winner, setWinner] = useState(null);
   const characters = [
@@ -77,7 +76,6 @@ export const App = () => {
           <CharactersScreen 
             isLoggedIn={isLoggedIn}
             characters={characters}
-            setFightStart={setFightStart}
             setBattleCharacters={setBattleCharacters}
             />
           }

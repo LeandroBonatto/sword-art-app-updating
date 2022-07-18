@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 
 import { Button, Input, Flex, Text } from "@chakra-ui/react";
+import { useNavigate } from 'react-router-dom';
 
 const adminCredentials = {userName: "admin", password: "admin"};
 
@@ -18,6 +19,8 @@ export const LoginScreen = ( {setLoggedIn} : LoginProps ) => {
     //UseState returns an array with two elements: state and the function to update it
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
+
+    const navigate = useNavigate();
 
     //countRef.current is reference to the current value of count, e.g 0
     //1) value of the reference is persistent across re-renders
@@ -52,6 +55,7 @@ export const LoginScreen = ( {setLoggedIn} : LoginProps ) => {
             password === adminCredentials.password 
         ) {
            setLoggedIn(true);
+           navigate("/characters");
         } else {
             setLoggedIn(false)
         }
