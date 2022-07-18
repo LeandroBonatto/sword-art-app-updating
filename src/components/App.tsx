@@ -1,8 +1,7 @@
-import React, { useState} from "react";
+import { useState} from "react";
 import { useFetch } from "../hooks/useFetch";
 import "./App.css";
 import { CharactersScreen } from "../screens/CharactersScreen";
-import { Login } from "./Login/Login";
 import { Battleground } from "./Battleground/Battleground";
 import { WinnerScreen } from "../screens/WinnerScreen";
 
@@ -62,7 +61,7 @@ export const App = () => {
 
   return (
   <div className="App" >
-    {!isLoggedIn ? <Login setLoggedIn={setIsLoggedIn} /> : null}
+    {!isLoggedIn ? <LoginScreen setLoggedIn={setIsLoggedIn} /> : null}
     {isLoggedIn && !isFightGoingOn ? (
     <CharactersScreen 
     characters={characters} 
