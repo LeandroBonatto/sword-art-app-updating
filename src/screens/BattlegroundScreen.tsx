@@ -1,6 +1,7 @@
 import React, {useRef, useState} from "react";
 import { Box, Text, Flex } from "@chakra-ui/react";
 import { useInterval } from "../hooks/useinterval";
+import { useNavigate } from "react-router-dom";
 
 export const BattlegroundScreen = ({ isLoggedIn, battleCharacters, setWinner, winner }) => {
     const [fighterOne, fighterTwo] = battleCharacters;
@@ -8,8 +9,10 @@ export const BattlegroundScreen = ({ isLoggedIn, battleCharacters, setWinner, wi
     const [sencondAttacks, setSecondAttacks] = useState(false);
     const attacksByFighterOne = useRef(0);
     const attacksByFighterTwo = useRef(0);
+    const navigate = useNavigate();
 
     if(!isLoggedIn) {
+        navigate("/login");
     }
 
     const handleFightersClash = () => {

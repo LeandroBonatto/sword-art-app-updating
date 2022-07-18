@@ -1,7 +1,12 @@
 import React from "react";
 import { Button, Text } from '@chakra-ui/react';
 
-export const WinnerScreen = ({ winner}) => {
+export const WinnerScreen = ({ winner, isLoggedIn}) => {
+    const navigate = useNavigate();
+
+    if(!isLoggedIn) {
+        navigate("/login");
+    }
     return (
         <>
             <Text> fontSize={"5xl"} fontWeight"800">
