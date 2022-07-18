@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Text } from '@chakra-ui/react';
 
-export const WinnerScreen = ({ winer, setFightStart }) => {
+export const WinnerScreen = ({ winner}) => {
     return (
         <>
             <Text> fontSize={"5xl"} fontWeight"800">

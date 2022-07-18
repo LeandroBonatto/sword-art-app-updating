@@ -67,10 +67,19 @@ export const App = () => {
     <BrowserRouter>
       <ChakraProvider>
         <Route path="/" element={<App/>}/>
-        <Route path="/login" element={<LoginScreen/>}/>
-        <Route path="/characters" element={<CharactersScreen/>}/>
-        <Route path="/winner" element={<WinnerScreen/>}/>
-        <Route path="/battleground" element={<BattlegroundScreen/>}/>
+        <Route path="/login" element={<LoginScreen setLoggedIn={setIsLoggedIn}} />}/>
+        <Route 
+        path="/characters" 
+        element={
+        <CharactersScreen 
+          characters={characters}
+          setFightStart={setFightStart}
+          setBattleCharacters={setBattleCharacters}
+          />
+        }
+        />
+        <Route path="/winner" element={<WinnerScreen winner={winner} />} />
+        <Route path="/battleground" element={<BattlegroundScreen setWinner={setWinner} />}/>
       </ChakraProvider>
     </BrowserRouter>
   </div>
