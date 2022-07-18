@@ -1,16 +1,18 @@
-import React, {useState} from "react";
+import React, {useRef, useState} from "react";
 import { Box, Text, Flex } from "@chakra-ui/react";
 import { useInterval } from "../hooks/useinterval";
 
-export const BattlegroundScreen = ({ battleCharacters, setWinner, winner }) => {
+export const BattlegroundScreen = ({ isLoggedIn, battleCharacters, setWinner, winner }) => {
     const [fighterOne, fighterTwo] = battleCharacters;
     const [firstAttacks, setFirstAttacks] = useState(false);
     const [sencondAttacks, setSecondAttacks] = useState(false);
     const attacksByFighterOne = useRef(0);
     const attacksByFighterTwo = useRef(0);
 
+    if
+
     const handleFightersClash = () => {
-        const {name, damagePerHit} = fightOne;
+        const {name, damagePerHit} = fighterOne;
         setSecondAttacks(false);
         setFirstAttacks(true);
         //We can check right after, because refs are updated synchronously
