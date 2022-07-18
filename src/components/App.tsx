@@ -4,7 +4,7 @@ import "./App.css";
 import { CharactersScreen } from "../screens/CharactersScreen";
 import { Login } from "./Login/Login";
 import { Battleground } from "./Battleground/Battleground";
-import {Text} from "@chakra-ui/react";
+import { WinnerScreen } from "../screens/WinnerScreen";
 
 //react application can be represented as a tree of React components
 //This is a react root component
@@ -17,7 +17,7 @@ import {Text} from "@chakra-ui/react";
 //we can see the character list, otherwise we see the simple message like
 //"You are not logged in"
 
-port const App = () => {
+export const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isFightGoingOn, setFightStart] = useState(false);
   const [battleCharacters, setBattleCharacters] = useState([]);
@@ -78,9 +78,7 @@ port const App = () => {
      /> 
     ) : null
     {isFightGoingOn && winner ? (
-      <Text fontSize={"5xl"} fontWeight"800">
-        Winner of the battle is {winner}
-      </Text>
+      <WinnerScreen winner={winner} setFightStart={setFightStart} />
     ) : null}
   </div>
   );
