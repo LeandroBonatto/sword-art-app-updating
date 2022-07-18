@@ -14,15 +14,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
       <ChakraProvider>
-        <Route path="/" element={<App/>}/>
-        <Route path="/login" element={<LoginScreen/>}/>
-        <Route path="/characters" element={<CharactersScreen/>}/>
-        <Route path="/winner" element={<WinnerScreen/>}/>
-        <Route path="/battleground" element={<BattlegroundScreen/>}/>
+        <App/>
       </ChakraProvider>
-    </BrowserRouter>
   </React.StrictMode>
 );
 

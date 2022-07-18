@@ -6,14 +6,14 @@ export const WinnerScreen = ({ winner, isLoggedIn}) => {
     const navigate = useNavigate();
 
     if(!isLoggedIn) {
-        navigate("/login");
+        navigate("/");
     }
     return (
         <>
             <Text> fontSize={"5xl"} fontWeight"800">
                 Winner of the battle is {winner}
             </Text>
-            <Button mt="3%" onClick={() => setFightStart(false)}>
+            <Button mt="3%" onClick={() => navigate("/characters")}>
                 Go back to character screen
             </Button>
         </>

@@ -5,7 +5,7 @@ import { CharactersScreen } from "../screens/CharactersScreen";
 import { WinnerScreen } from "../screens/WinnerScreen";
 import { LoginScreen } from "../screens/LoginScreen";
 import { BattlegroundScreen } from "../screens/BattlegroundScreen";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 
 //react application can be represented as a tree of React components
@@ -64,38 +64,39 @@ export const App = () => {
   return (
   <div className="App" >
     <BrowserRouter>
-        <Route 
-        path="/" element={<App/>}/>
-        <Route 
-        path="/login" 
-        element={<LoginScreen setLoggedIn={setIsLoggedIn}} />}
-        />
-        <Route 
-        path="/characters" 
-        element={
-        <CharactersScreen 
-          isLoggedIn={isLoggedIn}
-          characters={characters}
-          setFightStart={setFightStart}
-          setBattleCharacters={setBattleCharacters}
+      <Routes>
+          <Route
+          path="/" element={<App/>}/>
+          <Route 
+          path="/login" 
+          element={<LoginScreen setLoggedIn={setIsLoggedIn}} />}
+          />
+          <Route 
+          path="/characters" 
+          element={
+          <CharactersScreen 
+            isLoggedIn={isLoggedIn}
+            characters={characters}
+            setFightStart={setFightStart}
+            setBattleCharacters={setBattleCharacters}
+            />
+          }
+          />
+          <Route 
+          path="/winner" 
+          element={<WinnerScreen isLoggedIn={isLoggedIn} winner={winner} />} 
+          />
+          <Route 
+          path="/battleground" 
+          element={
+          <BattlegroundScreen
+            isLoggedIn={isLoggedIn} 
+            setWinner={setWinner} 
+            winner={winner}
+            battleCharacters={battleCharacters}
           />
         }
-        />
-        <Route 
-        path="/winner" 
-        element={<WinnerScreen isLoggedIn={isLoggedIn} winner={winner} />} 
-        />
-        <Route 
-        path="/battleground" 
-        element={
-        <BattlegroundScreen
-        isLoggedIn={isLoggedIn} 
-        setWinner={setWinner} 
-        winner={winner}
-        battleCharacters={battleCharacters}
-        />
-      }
-      />
+      </Routes>
     </BrowserRouter>
   </div>
   );
