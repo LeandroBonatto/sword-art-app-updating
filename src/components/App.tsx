@@ -65,22 +65,26 @@ export const App = () => {
   return (
   <div className="App" >
     <BrowserRouter>
-      <ChakraProvider>
         <Route path="/" element={<App/>}/>
-        <Route path="/login" element={<LoginScreen setLoggedIn={setIsLoggedIn}} />}/>
+        <Route 
+        path="/login" 
+        element={<LoginScreen setLoggedIn={setIsLoggedIn}} />}
+        />
         <Route 
         path="/characters" 
         element={
         <CharactersScreen 
+          isLoggedIn = {isLoggedIn}
           characters={characters}
           setFightStart={setFightStart}
           setBattleCharacters={setBattleCharacters}
           />
         }
         />
-        <Route path="/winner" element={<WinnerScreen winner={winner} />} />
+        <Route 
+        path="/winner" 
+        element={<WinnerScreen winner={winner} />} />
         <Route path="/battleground" element={<BattlegroundScreen setWinner={setWinner} />}/>
-      </ChakraProvider>
     </BrowserRouter>
   </div>
   );
