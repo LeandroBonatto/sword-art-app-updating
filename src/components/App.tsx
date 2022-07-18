@@ -18,7 +18,6 @@ import { ChakraProvider } from "@chakra-ui/react";
 //Let's create a functionality that only when user logged in as admin,
 //we can see the character list, otherwise we see the simple message like
 //"You are not logged in"
-
 export const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isFightGoingOn, setFightStart] = useState(false);
@@ -83,8 +82,19 @@ export const App = () => {
         />
         <Route 
         path="/winner" 
-        element={<WinnerScreen isLoggedIn={isLoggedIn} winner={winner} />} />
-        <Route path="/battleground" element={<BattlegroundScreen setWinner={setWinner} />}/>
+        element={<WinnerScreen isLoggedIn={isLoggedIn} winner={winner} />} 
+        />
+        <Route 
+        path="/battleground" 
+        element={
+        <BattlegroundScreen
+        isLoggedIn={isLoggedIn} 
+        setWinner={setWinner} 
+        winner={winner}
+        battleCharacters={battleCharacters}
+        />
+      }
+      />
     </BrowserRouter>
   </div>
   );
