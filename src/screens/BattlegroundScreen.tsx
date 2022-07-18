@@ -9,7 +9,8 @@ export const BattlegroundScreen = ({ isLoggedIn, battleCharacters, setWinner, wi
     const attacksByFighterOne = useRef(0);
     const attacksByFighterTwo = useRef(0);
 
-    if
+    if(!isLoggedIn) {
+    }
 
     const handleFightersClash = () => {
         const {name, damagePerHit} = fighterOne;
