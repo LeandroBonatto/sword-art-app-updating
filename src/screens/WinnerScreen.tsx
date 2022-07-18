@@ -7,7 +7,7 @@ export const WinnerScreen = ({ winer, setFightStart }) => {
             <Text> fontSize={"5xl"} fontWeight"800">
                 Winner of the battle is {winner}
             </Text>
-            <Button mt="3%" onClick={() => setFightStart}>
+            <Button mt="3%" onClick={() => setFightStart(false)}>
                 Go back to character screen
             </Button>
         </>
