@@ -7,7 +7,13 @@ export const CharactersScreen = ({
     characters, 
     setFightStart, 
     setBattleCharacters,
+    isLoggedIn,
 }) => {
+    const navigate = useNavigate();
+
+    if(!isLoggedIn) {
+        navigate("/login");
+    }
     return(
         <>
             <CharacterList characters={characters} />
