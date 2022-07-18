@@ -4,6 +4,7 @@ import "./App.css";
 import { CharactersScreen } from "../screens/CharactersScreen";
 import { Battleground } from "./Battleground/Battleground";
 import { WinnerScreen } from "../screens/WinnerScreen";
+import { LoginScreen } from "../screens/LoginScreen";
 
 //react application can be represented as a tree of React components
 //This is a react root component
