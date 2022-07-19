@@ -64,36 +64,35 @@ export const App = () => {
   <div className="App" >
     <BrowserRouter>
       <Routes>
-          <Route
-          path="/" element={<App/>}/>
           <Route 
-          path="/login" 
-          element={<LoginScreen setLoggedIn={setIsLoggedIn}} />}
+          path="/" 
+          element={<LoginScreen setLoggedIn={setIsLoggedIn} />}
           />
           <Route 
           path="/characters" 
           element={
-          <CharactersScreen 
-            isLoggedIn={isLoggedIn}
-            characters={characters}
-            setBattleCharacters={setBattleCharacters}
-            />
+            <CharactersScreen 
+              isLoggedIn={isLoggedIn}
+              characters={characters}
+              setBattleCharacters={setBattleCharacters}
+              />
           }
           />
           <Route 
-          path="/winner" 
-          element={<WinnerScreen isLoggedIn={isLoggedIn} winner={winner} />} 
+            path="/winner" 
+            element={<WinnerScreen isLoggedIn={isLoggedIn} winner={winner} />} 
           />
           <Route 
-          path="/battleground" 
-          element={
-          <BattlegroundScreen
-            isLoggedIn={isLoggedIn} 
-            setWinner={setWinner} 
-            winner={winner}
-            battleCharacters={battleCharacters}
-          />
-        }
+            path="/battleground" 
+            element={
+              <BattlegroundScreen
+                isLoggedIn={isLoggedIn} 
+                setWinner={setWinner} 
+                winner={winner}
+                battleCharacters={battleCharacters}
+            />
+          }
+        />
       </Routes>
     </BrowserRouter>
   </div>

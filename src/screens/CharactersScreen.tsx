@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { CharacterList } from "../components/CharacterList/CharacterList";
 import { CharacterSelection } from "../components/CharacterSelection/CharacterSelection";
 

@@ -20,6 +20,7 @@ export const LoginScreen = ( {setLoggedIn} : LoginProps ) => {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
 
+    //This hook is used to navigate to other pages
     const navigate = useNavigate();
 
     //countRef.current is reference to the current value of count, e.g 0
