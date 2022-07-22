@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 //we check diretory relative to the file 
-import { App } from './components/App';
 import { ChakraProvider } from '@chakra-ui/react';
-import { LoginScreen } from './screens/LoginScreen';
-import { WinnerScreen } from './screens/WinnerScreen';
+import { App } from './components/App';
+import { Provider } from "react-redux";
+import store from "./store";
 
 //Creates a root element in the DOM
 //React DOM library is used to interact with the DOM
@@ -15,7 +15,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
       <ChakraProvider>
-        <App/>
+        <Provider store={store}>
+          <App/>
+        </Provider>
       </ChakraProvider>
   </React.StrictMode>
 );
