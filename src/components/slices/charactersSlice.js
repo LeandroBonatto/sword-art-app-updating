@@ -39,7 +39,7 @@ export const charactersSlice = createSlice({
     //But slices use Immer library to do immutable state mutations behind the scenes,
     //so we can mutate state directly
     addBattleCharacter: (state, action) => {
-        state.battleCharacters = [...state.battleCharacters, action.payload]
+        state.battleCharacters.push(action.payload)
     }
   },
 })
