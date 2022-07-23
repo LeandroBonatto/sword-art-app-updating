@@ -35,7 +35,9 @@ export const charactersSlice = createSlice({
         battleCharacters: [],
     },
   reducers: {
-    //This is the reducer for the characterList
+    //In canonical redux we can not mutate state directly, we need to return a new state
+    //But slices use Immer library to do immutable state mutations behind the scenes,
+    //so we can mutate state directly
     addBattleCharacter: (state, action) => {
         state.battleCharacters = [...state.battleCharacters, action.payload]
     }
