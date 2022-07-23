@@ -1,10 +1,32 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-export const counterSlice = createSlice({
-  name: 'counter',
+export const charactersSlice = createSlice({
+  name: 'characters',
   initialState: {
-    value: 0,
-  },
+    characterList: [
+        {
+            name: "Goku", 
+            health: 100, 
+            fraction: "Saiyan", 
+            weapon: "Ki", 
+            damagePerHit: 25,
+          },
+          {
+            name: "Bobrik", 
+            health: 150, 
+            fraction: "Random", 
+            weapon: "Bow", 
+            damagePerHit: 19,
+          },
+          {
+            name: "Valera", 
+            health: 80, 
+            fraction: "Ukraine", 
+            weapon: "Tanto", 
+            damagePerHit: 15,
+          },
+        ],
+    },
   reducers: {
     increment: (state) => {
       // Redux Toolkit allows us to write "mutating" logic in reducers. It
