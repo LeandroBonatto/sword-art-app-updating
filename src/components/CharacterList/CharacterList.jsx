@@ -4,7 +4,7 @@ import { Table, TableCaption, Thead, Tr, Th, Tbody } from "@chakra-ui/react"
 import "./CharacterList.css";
 
 // Props are passed to the component via attributes
-export const CharacterList = (characters) => {
+export const CharacterList = () => {
     //returns true if math.random is more than 0.5
   return (
     <Table>
