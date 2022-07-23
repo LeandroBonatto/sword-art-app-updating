@@ -32,9 +32,13 @@ export const charactersSlice = createSlice({
             damagePerHit: 15,
           },
         ],
+        battleCharacters: [],
     },
   reducers: {
     //This is the reducer for the characterList
+    addBattleCharacter: (state, action) => {
+        state.battleCharacters = [...state.battleCharacters, action.payload]
+    }
   },
 })
 
