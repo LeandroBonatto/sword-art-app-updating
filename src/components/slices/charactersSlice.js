@@ -1,5 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+//Let me describe redux data flow:
+//1. We click on a button that triggers an action
+//2. The action is dispatched to the store (we need to provide type and payload)
+//3. The store dispatches the action to all the reducers
+//4. Correct reducer is called and the state is updated
+//5. The component is re-rendered
 export const charactersSlice = createSlice({
   name: 'characters',
   initialState: {
