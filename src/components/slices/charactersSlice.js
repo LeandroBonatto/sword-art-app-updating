@@ -38,12 +38,18 @@ export const charactersSlice = createSlice({
     //In canonical redux we can not mutate state directly, we need to return a new state
     //But slices use Immer library to do immutable state mutations behind the scenes,
     //so we can mutate state directly
-    addBattleCharacter: (state, action) => {
-        state.battleCharacters.push(action.payload)
-    }
+    //In this case reducer is not only reducer but also an action creator
+    setBattleCharacters: (state, action) => {
+        //state.battleCharacters = action.payload; will not work
+        return {
+            characterList: state, characterList,
+            battleCharacters: action.payload,
+        };
+    },
   },
-})
+});
 
 // Action creators are generated for each case reducer function
+export const { setBattleCharacters } = charactersSlice.actions;
 
 export default charactersSlice.reducer

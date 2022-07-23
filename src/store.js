@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+import charactersReducer from "./slices/charactersSlice";
 
 //Redux store is a single source of truth for the application state
 //Note: we can still combine react useState and redux store
@@ -6,5 +7,7 @@ import { configureStore } from "@reduxjs/toolkit";
 //1. We need to create the store
 //2. We need to provide redux store to React
 export default configureStore({
-    reducer: {},
+    reducer: {
+        characters: charactersReducer
+    },
 })
