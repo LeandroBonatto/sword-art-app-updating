@@ -54,9 +54,10 @@ export const LoginScreen = ( ) => {
             userName === adminCredentials.userName &&
             password === adminCredentials.password 
         ) {
-            dispatch(setIsLoggedIn);
+            dispatch(setIsLoggedIn(true));
            navigate("/characters");
         } else {
+            dispatch(setIsLoggedIn(false));
         }
     };
 
