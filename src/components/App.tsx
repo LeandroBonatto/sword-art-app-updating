@@ -19,7 +19,6 @@ import { ChakraProvider } from "@chakra-ui/react";
 //we can see the character list, otherwise we see the simple message like
 //"You are not logged in"
 export const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [winner, setWinner] = useState(null);
   const { response, error} = useFetch(
     "https://jsonplaceholder.typicode.com/posts"
@@ -42,25 +41,20 @@ export const App = () => {
       <Routes>
           <Route 
           path="/" 
-          element={<LoginScreen setLoggedIn={setIsLoggedIn} />}
+          element={<LoginScreen/>}
           />
           <Route 
           path="/characters" 
-          element={
-            <CharactersScreen 
-              isLoggedIn={isLoggedIn}
-              />
-          }
+          element={<CharactersScreen />}
           />
           <Route 
             path="/winner" 
-            element={<WinnerScreen isLoggedIn={isLoggedIn} winner={winner} />} 
+            element={<WinnerScreen winner={winner} />} 
           />
           <Route 
             path="/battleground" 
             element={
-              <BattlegroundScreen
-                isLoggedIn={isLoggedIn} 
+              <BattlegroundScreen 
                 setWinner={setWinner} 
                 winner={winner}
             />
