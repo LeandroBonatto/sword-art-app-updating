@@ -39,11 +39,13 @@ export const CharacterSelection = () => {
         }
         setIsAlertVisible(false);
 
-        const selectedCharacters = characters.filter((character) => heroesSelected.includes(character.name))
+        const selectedCharacters = characters.filter((character) => 
+        heroesSelected.includes(character.name)
+        );
+        
+        //Select characters in our case is action.payload
 
-        dispatch(setBattleCharacters(
-            characters.filter((character) => heroesSelected.includes(character.name))
-    ));
+        dispatch(setBattleCharacters(selectedCharacters));
     navigate("/battleground")
 };
 
