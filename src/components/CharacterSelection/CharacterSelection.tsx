@@ -38,6 +38,9 @@ export const CharacterSelection = () => {
             return;
         }
         setIsAlertVisible(false);
+
+        const selectedCharacters = characters.filter((character) => heroesSelected.includes(character.name))
+
         dispatch(setBattleCharacters(
             characters.filter((character) => heroesSelected.includes(character.name))
     ));
