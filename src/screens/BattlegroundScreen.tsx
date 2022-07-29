@@ -1,11 +1,10 @@
 import React, {useRef, useState} from "react";
 import { Box, Text, Flex } from "@chakra-ui/react";
-import { useInterval } from "../hooks/useinterval";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useInterval } from "../hooks/useinterval";
 
 export function BattlegroundScreen({ 
-    isLoggedIn, 
     setWinner, 
     winner 
 }) => {
@@ -17,6 +16,7 @@ export function BattlegroundScreen({
     const attacksByFighterTwo = useRef(0);
     const navigate = useNavigate();
 
+    const isLoggedIn = useSelector((store: any) => store.characters.battleCharacters);
     if (!isLoggedIn) {
         navigate("/");
     }
