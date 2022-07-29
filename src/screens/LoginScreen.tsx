@@ -5,14 +5,11 @@ import { useNavigate } from "react-router-dom";
 
 const adminCredentials = {userName: "admin", password: "admin"};
 
-interface LoginProps {
-    setLoggedIn: (isLoggedIn: boolean) => void;
-}
 
 //In React we have two main types of components: stateless and stateful
 //1. User types his login and password and clicks login button
 //2. If the login password combination is correct, the user is redirected to the character
-export const LoginScreen = ( {setLoggedIn} : LoginProps ) => {
+export const LoginScreen = ( ) => {
     //Rule 1: We never update the state directly, we always use setState
     //Rule 2: when state changes, the component re-renders
     //Rule 3: setState is asynchronous, it doesnt block the execution of the code
@@ -55,10 +52,8 @@ export const LoginScreen = ( {setLoggedIn} : LoginProps ) => {
             userName === adminCredentials.userName &&
             password === adminCredentials.password 
         ) {
-           setLoggedIn(true);
            navigate("/characters");
         } else {
-            setLoggedIn(false)
         }
     };
 
