@@ -16,7 +16,7 @@ export function BattlegroundScreen({
     const attacksByFighterTwo = useRef(0);
     const navigate = useNavigate();
 
-    const isLoggedIn = useSelector((store: any) => store.characters.battleCharacters);
+    const isLoggedIn = useSelector((store: any) => store.login.isLoggedIn);
     if (!isLoggedIn) {
         navigate("/");
     }
