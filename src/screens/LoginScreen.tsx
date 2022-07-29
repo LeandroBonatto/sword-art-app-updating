@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import { Button, Input, Flex, Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { setIsLoggedIn } from '../components/slices/loginSlice';
 
 const adminCredentials = {userName: "admin", password: "admin"};
 
@@ -20,7 +21,7 @@ export const LoginScreen = ( ) => {
 
     //This hook is used to navigate to other pages
     const navigate = useNavigate();
-
+    const dispatch = useDispatch();
     //countRef.current is reference to the current value of count, e.g 0
     //1) value of the reference is persistent across re-renders
     //2) Changing value of the reference doesn't cause component to re-render
@@ -53,6 +54,7 @@ export const LoginScreen = ( ) => {
             userName === adminCredentials.userName &&
             password === adminCredentials.password 
         ) {
+            dispatch(setIsLoggedIn);
            navigate("/characters");
         } else {
         }
