@@ -3,11 +3,11 @@ import { Button, Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-export const WinnerScreen = ({ winner}) => {
+export function WinnerScreen({ winner }) {
     const navigate = useNavigate();
 
     const isLoggedIn = useSelector((store: any) => store.login.isLoggedIn);
-    if(!isLoggedIn) {
+    if (!isLoggedIn) {
         navigate("/");
     }
     return (
@@ -20,4 +20,4 @@ export const WinnerScreen = ({ winner}) => {
             </Button>
         </>
     );
-};
+}

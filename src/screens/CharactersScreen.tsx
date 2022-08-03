@@ -5,8 +5,7 @@ import { CharacterList } from "../components/CharacterList/CharacterList";
 import { CharacterSelection } from "../components/CharacterSelection/CharacterSelection";
 
 //Screens are composed of components and they group what we want to see on the screen at one time
-export const CharactersScreen = ({ 
-}) => {
+export const CharactersScreen = () => { 
     const navigate = useNavigate();
 
     const isLoggedIn = useSelector((store: any) => store.login.isLoggedIn);

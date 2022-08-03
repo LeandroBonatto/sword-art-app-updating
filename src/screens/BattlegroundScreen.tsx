@@ -5,9 +5,7 @@ import { useSelector } from "react-redux";
 import { useInterval } from "../hooks/useinterval";
 
 export function BattlegroundScreen({ 
-    setWinner, 
-    winner 
-}) => {
+    }): any => {
     const battleCharacters = useSelector((store: any) => store.characters.battleCharacters);
     const [fighterOne, fighterTwo] = battleCharacters;
     const [firstAttacks, setFirstAttacks] = useState(false);
@@ -85,4 +83,8 @@ export function BattlegroundScreen({
             }
         </Flex>
     );
+}
+
+function setWinner(name: any) {
+    throw new Error("Function not implemented.");
 }

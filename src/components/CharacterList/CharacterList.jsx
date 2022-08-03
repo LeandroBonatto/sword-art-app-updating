@@ -2,7 +2,8 @@ import React from 'react'
 import { CharacterListItem } from './CharacterListItem/CharacterListItem';
 import { Table, TableCaption, Thead, Tr, Th, Tbody } from "@chakra-ui/react"
 import "./CharacterList.css";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
+
 
 // Props are passed to the component via attributes
 export const CharacterList = () => {

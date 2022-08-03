@@ -65,3 +65,7 @@ export const App = () => {
   </div>
   );
 };
+function battleCharacters(arg0: string, battleCharacters: any) {
+  throw new Error("Function not implemented.");
+}
+
