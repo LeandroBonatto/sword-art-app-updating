@@ -1,4 +1,8 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+
+
+export const getCharacters = createAsyncThunk('characters/getCharacters', async () => {
+  })
 
 //Let me describe redux data flow:
 //1. We click on a button that triggers an action
@@ -15,6 +19,8 @@ export const charactersSlice = createSlice({
   name: 'characters',
   initialState: {
     characterList: [],
+    status: "idle",
+    error: null,
     battleCharacters [],
     },
   reducers: {
