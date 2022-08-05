@@ -1,7 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
-
+//createAsyncThunk is a function that allows us to get data asynchronously
+//It takes type and a function that returns a promise
+//Type has to be name of the slice, slash, name of the action
 export const getCharacters = createAsyncThunk('characters/getCharacters', async () => {
+  const response = await fetch ('http://localhost:8000/characters');
+  const data = await response.json();
+  return data;
   })
 
 //Let me describe redux data flow:
@@ -35,6 +40,17 @@ export const charactersSlice = createSlice({
             battleCharacters: action.payload,
         };
     },
+  },
+  extraReducers(builder) {
+    builder.addCase(getCharacters.pending, (state, action) => {
+      state.status = "loading";
+    }).addCase(getCharacters.fulfilled, (state, action) => {
+      state.status = "suceeded";
+      state.characterList = action.payload;
+    }).addCase(getCharacters.rejected, (state,action) => {
+      state.status = "failed";
+      state.characterList = action.error;
+    });
   },
 });
 
