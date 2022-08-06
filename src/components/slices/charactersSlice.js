@@ -3,11 +3,14 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 //createAsyncThunk is a function that allows us to get data asynchronously
 //It takes type and a function that returns a promise
 //Type has to be name of the slice, slash, name of the action
-export const getCharacters = createAsyncThunk('characters/getCharacters', async () => {
-  const response = await fetch ('http://localhost:8000/characters');
+export const getCharacters = createAsyncThunk(
+  "characters/getCharacters", 
+async () => {
+  const response = await fetch ("http://localhost:8080/characters");
   const data = await response.json();
   return data;
-  })
+  }
+);
 
 //Let me describe redux data flow:
 //1. We click on a button that triggers an action

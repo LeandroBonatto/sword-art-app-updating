@@ -25,7 +25,7 @@ export const CharactersScreen = () => {
     }
 
     if(error) {
-        return <div>error:</div>
+        return <div>Error: {error.message}</div>
     }
     
 
