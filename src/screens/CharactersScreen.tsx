@@ -20,7 +20,14 @@ export const CharactersScreen = () => {
         navigate("/");
     }
 
-    const dispatch = useAppDispatch();
+    if(loading) {
+        return <div>Loading...</div>
+    }
+
+    if(error) {
+        return <div>error:</div>
+    }
+    
 
     useEffect(() => {
         dispatch(getCharacters())
