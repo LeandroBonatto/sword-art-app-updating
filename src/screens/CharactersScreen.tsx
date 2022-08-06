@@ -14,23 +14,16 @@ export const CharactersScreen = () => {
         navigate("/");
     }
 
-
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
         dispatch(getCharacters())
-
-        return () => {
-            second
-        }
-    }, [third])
+    }, [dispatch]);
 
     return(
         <>
             <CharacterList />
-            <CharacterSelection 
-
-            />
+            <CharacterSelection />
         </>
     );
 };
