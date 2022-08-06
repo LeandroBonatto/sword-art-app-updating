@@ -18,4 +18,3 @@ export type RootState = ReturnType<typeof store.getState>
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UserState}
 export type AppDispatch = typeof store.dispatch
 
-// app/hooks.ts
