@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { CharacterList } from "../components/CharacterList/CharacterList";
 import { CharacterSelection } from "../components/CharacterSelection/CharacterSelection";
@@ -9,7 +9,11 @@ import { getCharacters } from '../components/slices/charactersSlice';
 export const CharactersScreen = () => { 
     const navigate = useNavigate();
 
-    const isLoggedIn = useSelector((store: any) => store.login.isLoggedIn);
+    const isLoggedIn = useSelector((store: any) => state.login.isLoggedIn);
+
+    const loading = useSelector((store: any) => state.login.isLoggedIn);
+    const error = useSelector((store: any) => state.login.isLoggedIn);
+
     if(!isLoggedIn) {
         navigate("/");
     }
