@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { CharacterList } from "../components/CharacterList/CharacterList";
 import { CharacterSelection } from "../components/CharacterSelection/CharacterSelection";
 import { getCharacters } from '../components/slices/charactersSlice';
+import { useAppDispatch } from '../hooks/redux';
 
 //Screens are composed of components and they group what we want to see on the screen at one time
 export const CharactersScreen = () => { 
@@ -13,6 +14,7 @@ export const CharactersScreen = () => {
 
     const loading = useSelector((store: any) => state.login.isLoggedIn);
     const error = useSelector((store: any) => state.login.isLoggedIn);
+    const dispatch = useAppDispatch();
 
     if(!isLoggedIn) {
         navigate("/");
