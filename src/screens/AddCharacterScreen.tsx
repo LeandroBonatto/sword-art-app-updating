@@ -1,5 +1,5 @@
 import { InputGroup, Stack, InputLeftElement, Input, InputRightElement } from "@chakra-ui/react";
-import {  }
+import { PhoneIcon, CheckIcon} from "@chakra-ui/react";
 import React from 'react'
 
 export const AddCharacterScreen = () => {
@@ -10,7 +10,25 @@ export const AddCharacterScreen = () => {
         pointerEvents='none'
         children={<PhoneIcon color='gray.300' />}
       />
-      <Input type='tel' placeholder='Phone number' />
+      <Input type='text' placeholder="Please enter a character name" />
+    </InputGroup>
+
+    <Stack spacing={4}>
+    <InputGroup>
+      <InputLeftElement
+        pointerEvents='none'
+        children={<PhoneIcon color='gray.300' />}
+      />
+      <Input type='text' placeholder="Please enter a character fraction" />
+    </InputGroup>
+
+    <Stack spacing={4}>
+    <InputGroup>
+      <InputLeftElement
+        pointerEvents='none'
+        children={<PhoneIcon color='gray.300' />}
+      />
+      <Input type='number' placeholder="Please enter a character health" />
     </InputGroup>
   
     <InputGroup>
