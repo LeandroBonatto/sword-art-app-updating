@@ -1,5 +1,13 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios';
+import { character } from '../../screens/AddCharacterScreen';
+
+type CharacterState = {
+  charactersList: any;
+  status: string;
+  error: any;
+  battleCharacter: any;
+}
 
 //createAsyncThunk is a function that allows us to get data asynchronously
 //It takes type and a function that returns a promise
@@ -17,7 +25,8 @@ async () => {
 //3. We send a character to the server
 //4. Character is created in the database
 //5. We get the character that was created with id information
-export const addCharacter = createAsyncThunk("characters/addCharacter", async (character) => {
+export const addCharacter = createAsyncThunk("characters/addCharacter", 
+async (character: Character) => {
   const response = await axios.post("http://localhost:8080/characters", character);
   return response.data;
 });

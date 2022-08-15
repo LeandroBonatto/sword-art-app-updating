@@ -3,6 +3,15 @@ import React, { useState } from 'react'
 import { addCharacter } from "../components/slices/charactersSlice";
 import { useAppDispatch } from "../hooks/redux";
 
+export interface character {
+  name: string;
+  fraction: string;
+  damagePerHit: number;
+  health: number;
+  weapon: string;
+}
+
+
 export const AddCharacterScreen = () => {
     const [name, setName] = useState("");
     const [damagePetHit, setDamagePerHit] = useState(0);
@@ -40,7 +49,7 @@ export const AddCharacterScreen = () => {
         fraction,
         weapon,
       };
-      dispatch(addCharacter(newCharacter));
+      dispatch(addCharacter(newCharacter as Character));
     };
 
     const alert = (
