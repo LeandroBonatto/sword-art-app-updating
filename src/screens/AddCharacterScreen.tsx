@@ -1,5 +1,6 @@
 import { InputGroup, Stack, InputLeftElement, Input, InputRightElement, Alert, AlertIcon } from "@chakra-ui/react";
 import React, { useState } from 'react'
+import { useAppDispatch } from "../hooks/redux";
 
 export const AddCharacterScreen = () => {
     const [name, setName] = useState("");
@@ -9,6 +10,8 @@ export const AddCharacterScreen = () => {
     const [weapon, setWeapon] = useState("");
 
     const [isAlertVisible, setIsAlertVisible] = useState(false);
+
+    const dispatch = useAppDispatch();
 
     const validateValues = () => {
       if (
@@ -25,7 +28,19 @@ export const AddCharacterScreen = () => {
       };
 
     const handleCharacterAdd = () => {
-    }
+      if (!validateValues()){
+        return;
+      }
+      setIsAlertVisible(false);
+      const newCharacter = {
+        name,
+        damagePetHit,
+        health,
+        fraction,
+        weapon,
+      };
+      console.log(newCharacter);
+    };
 
     const alert = (
       <Alert status="error">
