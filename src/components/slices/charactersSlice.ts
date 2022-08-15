@@ -3,10 +3,10 @@ import axios from 'axios';
 import { character } from '../../screens/AddCharacterScreen';
 
 type CharacterState = {
-  charactersList: any;
+  characterList: ;
   status: string;
-  error: any;
-  battleCharacter: any;
+  error: Error;
+  battleCharacter: ;
 }
 
 //createAsyncThunk is a function that allows us to get data asynchronously
@@ -14,8 +14,11 @@ type CharacterState = {
 //Type has to be name of the slice, slash, name of the action
 export const getCharacters = createAsyncThunk(
   "characters/getCharacters", 
-async () => {
-  const response = await axios.get("http://localhost:8080/characters");
+async (: Character) => {
+  const response = await axios.post
+  ("http://localhost:8080/characters",
+  character
+  );
   return response.data;
   }
 );
@@ -25,11 +28,16 @@ async () => {
 //3. We send a character to the server
 //4. Character is created in the database
 //5. We get the character that was created with id information
-export const addCharacter = createAsyncThunk("characters/addCharacter", 
+export const addCharacter = createAsyncThunk(
+  "characters/addCharacter", 
 async (character: Character) => {
-  const response = await axios.post("http://localhost:8080/characters", character);
-  return response.data;
-});
+  const response = await axios.post(
+    "http://localhost:8080/characters", 
+    character
+    );
+    return response.data;
+  }
+);
 
 //Let me describe redux data flow:
 //1. We click on a button that triggers an action
@@ -47,9 +55,9 @@ export const charactersSlice = createSlice({
   initialState: {
     characterList: [],
     status: "idle",
-    error: null,
+    error: Error,
     battleCharacters [],
-    },
+    } as CharacterState,
   reducers: {
     //In canonical redux we can not mutate state directly, we need to return a new state
     //But slices use Immer library to do immutable state mutations behind the scenes,
@@ -65,7 +73,7 @@ export const charactersSlice = createSlice({
   },
   extraReducers(builder) {
     builder
-    .addCase(getCharacters.pending, (state, action) => {
+    .addCase(getCharacters.pending, (state: , action) => {
       state.status = "loading";
     })
     .addCase(getCharacters.fulfilled, (state, action) => {
