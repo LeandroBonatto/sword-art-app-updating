@@ -1,5 +1,4 @@
 import { InputGroup, Stack, InputLeftElement, Input, InputRightElement, Alert, AlertIcon } from "@chakra-ui/react";
-import { PhoneIcon, CheckIcon} from "@chakra-ui/react";
 import React, { useState } from 'react'
 
 export const AddCharacterScreen = () => {
@@ -9,7 +8,21 @@ export const AddCharacterScreen = () => {
     const [fraction, setFraction] = useState("");
     const [weapon, setWeapon] = useState("");
 
-    const validateValues =>
+    const [isAlertVisible, setIsAlertVisible] = useState(false);
+
+    const validateValues = () => {
+      if (
+        name.length === 0 || 
+        damagePerHit < 0 || 
+        health < 0 ||
+        fraction.length === 0 ||
+        weapon.length === 0
+        ) {
+          setIsAlertVisible(true);
+          return false;
+        }
+          return true;
+      };
 
     const handleCharacterAdd = () => {
     }
@@ -53,6 +66,7 @@ export const AddCharacterScreen = () => {
         placeholder="Please enter a character weapon" 
       />
       <Button>Add character</Button>
+      {isAlertVisible && alert}
     </Stack>
   );
 };
