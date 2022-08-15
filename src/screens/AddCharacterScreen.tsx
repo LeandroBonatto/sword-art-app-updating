@@ -1,5 +1,6 @@
 import { InputGroup, Stack, InputLeftElement, Input, InputRightElement, Alert, AlertIcon } from "@chakra-ui/react";
 import React, { useState } from 'react'
+import { addCharacter } from "../components/slices/charactersSlice";
 import { useAppDispatch } from "../hooks/redux";
 
 export const AddCharacterScreen = () => {
@@ -39,7 +40,7 @@ export const AddCharacterScreen = () => {
         fraction,
         weapon,
       };
-      console.log(newCharacter);
+      dispatch(addCharacter(newCharacter));
     };
 
     const alert = (

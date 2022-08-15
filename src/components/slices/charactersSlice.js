@@ -12,9 +12,15 @@ async () => {
   }
 );
 
+//1. We fill in information about our character
+//2. We press "Add Character" button
+//3. We send a character to the server
+//4. Character is created in the database
+//5. We get the character that was created with id information
 export const addCharacter = createAsyncThunk("characters/addCharacter", async (character) => {
-
-}
+  const response = await axios.post("http://localhost:8080/characters", character);
+  return response.data;
+});
 
 //Let me describe redux data flow:
 //1. We click on a button that triggers an action
@@ -49,14 +55,27 @@ export const charactersSlice = createSlice({
     },
   },
   extraReducers(builder) {
-    builder.addCase(getCharacters.pending, (state, action) => {
+    builder
+    .addCase(getCharacters.pending, (state, action) => {
       state.status = "loading";
-    }).addCase(getCharacters.fulfilled, (state, action) => {
+    })
+    .addCase(getCharacters.fulfilled, (state, action) => {
       state.status = "suceeded";
       state.characterList = action.payload;
-    }).addCase(getCharacters.rejected, (state,action) => {
+    })
+    .addCase(getCharacters.rejected, (state,action) => {
       state.status = "failed";
       state.characterList = action.error;
+      .addCase(addCharacter.pending, (state, action) => {
+        state.status = "loading";
+      })
+      .addCase(addCharacter.fulfilled, (state, action) => {
+        state.status = "suceeded";
+        state.characterList.push(action.payload);
+      })
+      .addCase(addCharacter.rejected, (state,action) => {
+        state.status = "failed";
+        state.characterList = action.error;
     });
   },
 });
