@@ -10,14 +10,15 @@ export const AddCharacterScreen = () => {
     const [weapon, setWeapon] = useState("");
   return (
     <Stack spacing={4}>
-      <Input type='text' placeholder="Please enter a character name" />
-      <Input type='text' placeholder="Please enter a character fraction" />
-      <Input type='number' placeholder="Please enter a character health" />
+      <Input type='text' value={name} placeholder="Please enter a character name" />
+      <Input type='text' value={fraction} placeholder="Please enter a character fraction" />
+      <Input type='number' value={health} placeholder="Please enter a character health" />
       <Input 
         type="number"
+        value={damagePerHit}
         placeholder="Please enter a character damage per hit" 
       />
-      <Input type='number' placeholder="Please enter a character weapon" />
+      <Input type='text' value={weapon} placeholder="Please enter a character weapon" />
       <button>Add character</button>
     </Stack>
   );
