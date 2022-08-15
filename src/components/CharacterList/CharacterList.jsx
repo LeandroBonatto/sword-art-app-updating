@@ -21,25 +21,28 @@ export const CharacterList = () => {
   const navigate = useNavigate();
     //returns true if math.random is more than 0.5
   return (
-    <Table>
+    <>
+      <Table>
         <TableCaption>Character Table</TableCaption>
-      <Thead>
-        <tr>
-          <th>Name</th>
-          <th isNumeric>Helath</th>
-          <th>Fraction</th>
-          <th>Weapon</th>
-          <th isNumeric>Damage per Hit</th>
-        </tr>
-        </Thead>
-        <Tbody>
-          {characters.map((character) => (
-            <CharacterListItem 
-              isChampion={Math.random() > 0.5} 
-              character={character}  
-            />
-          ))}
-        </Tbody>
-    </Table>
+        <Thead>
+          <tr>
+            <th>Name</th>
+            <th isNumeric>Helath</th>
+            <th>Fraction</th>
+            <th>Weapon</th>
+            <th isNumeric>Damage per Hit</th>
+          </tr>
+          </Thead>
+          <Tbody>
+            {characters.map((character) => (
+              <CharacterListItem 
+                isChampion={Math.random() > 0.5} 
+                character={character}  
+              />
+            ))}
+          </Tbody>
+      </Table>
+      <Button onClick={() => navigate("/manageCharacter")}>Go to add character screen</Button>
+    </>
   );
 };
