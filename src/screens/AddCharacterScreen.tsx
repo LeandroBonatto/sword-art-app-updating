@@ -15,10 +15,12 @@ export const AddCharacterScreen = () => {
     const dispatch = useAppDispatch();
 
     const validateValues = () => {
+      const damage = parseInt(damagePetHit);
+      const hp = parseInt(health);
       if (
         name.length === 0 || 
-        damagePerHit < 0 || 
-        health < 0 ||
+        damage < 0 || 
+        hp < 0 ||
         fraction.length === 0 ||
         weapon.length === 0
         ) {
@@ -81,7 +83,7 @@ export const AddCharacterScreen = () => {
         type="text"
         value={damagePerHit}
         placeholder="Please enter a character damage per hit" 
-        onChange={(e) => setDamagePerHit(Number(e.target.value))}
+        onChange={onEnterDamage}
       />
       <Input 
         type='text' 
