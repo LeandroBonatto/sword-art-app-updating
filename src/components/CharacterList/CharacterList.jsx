@@ -1,11 +1,9 @@
 import React from 'react'
 import { CharacterListItem } from './CharacterListItem/CharacterListItem';
-import { Table, TableCaption, Thead, Tr, Th, Tbody } from "@chakra-ui/react"
+import { Table, Thead, Tr, Th, Tbody } from "@chakra-ui/react"
 import "./CharacterList.css";
 import { useSelector } from "react-redux";
 import { useNavigate } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-
 
 // Props are passed to the component via attributes
 
