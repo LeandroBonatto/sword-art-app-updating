@@ -30,14 +30,6 @@ export const AddCharacterScreen = () => {
           return true;
       };
 
-      const onEnterHealth = (e) => {
-        setHealth(parseInt(e.target.value));
-      }
-
-      const onEnterDamage = (e) => {
-        setHealth(parseInt(e.target.value));
-      }
-
     const handleCharacterAdd = () => {
       if (!validateValues()){
         return;
@@ -45,8 +37,8 @@ export const AddCharacterScreen = () => {
       setIsAlertVisible(false);
       const newCharacter = {
         name,
-        damagePetHit,
-        health,
+        damagePerHit: parseInt(damagePetHit),
+        health: parseInt(health),
         fraction,
         weapon,
       };
