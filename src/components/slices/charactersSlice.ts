@@ -25,13 +25,6 @@ const initialState: CharacterState = {
   battleCharacter: [],
 };
 
-type CharacterState = {
-  characterList: ;
-  status: string;
-  error: Error;
-  battleCharacter: ;
-}
-
 //createAsyncThunk is a function that allows us to get data asynchronously
 //It takes type and a function that returns a promise
 //Type has to be name of the slice, slash, name of the action
