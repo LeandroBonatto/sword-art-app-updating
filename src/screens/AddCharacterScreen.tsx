@@ -32,7 +32,7 @@ export const AddCharacterScreen = () => {
           return true;
       };
 
-    const handleCharacterAdd = () => {
+    const handleCharacterAddition = () => {
       if (!validateValues()){
         return;
       }
