@@ -5,7 +5,7 @@ import { addCharacter, Character } from "../components/slices/charactersSlice";
 
 export const AddCharacterScreen = () => {
     const [name, setName] = useState("");
-    const [damagePetHit, setDamagePerHit] = useState(0);
+    const [damagePetHit, setDamagePerHit] = useState("");
     const [health, setHealth] = useState(0);
     const [fraction, setFraction] = useState("");
     const [weapon, setWeapon] = useState("");
@@ -69,13 +69,13 @@ export const AddCharacterScreen = () => {
         type='text' 
         value={health} 
         placeholder="Please enter a character health" 
-        onChange={onEnterHealth}
-      />
+        onChange={(e) => SetHealth(e.target.value)}
+    />
       <Input 
         type="text"
         value={damagePerHit}
         placeholder="Please enter a character damage per hit" 
-        onChange={onEnterDamage}
+        onChange={(e) => setDamagePerHit=(e.target.value)}
       />
       <Input 
         type='text' 
