@@ -11,6 +11,13 @@ export interface Character {
   health: number;
 }
 
+interface charactersState {
+  characterList: Character[];
+  status: Character[];
+  error: any;
+  battleCharacters: Character[];
+}
+
 type CharacterState = {
   characterList: ;
   status: string;
