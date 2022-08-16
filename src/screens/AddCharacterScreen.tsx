@@ -72,13 +72,13 @@ export const AddCharacterScreen = () => {
       onChange={(e) => setFraction(e.target.value)}
     />
       <Input 
-        type='number' 
+        type='text' 
         value={health} 
         placeholder="Please enter a character health" 
-        onChange={(e) => setHealth(Number(e.target.value))}
+        onChange={onEnterHealth}
       />
       <Input 
-        type="number"
+        type="text"
         value={damagePerHit}
         placeholder="Please enter a character damage per hit" 
         onChange={(e) => setDamagePerHit(Number(e.target.value))}
