@@ -42,7 +42,15 @@ export const CharacterList = () => {
             ))}
           </Tbody>
       </Table>
-      <Button onClick={() => navigate("/manageCharacter")}>Go to add character screen</Button>
+      <Button 
+      colorScheme={"teal"}
+      size="lg"
+      mt="4%"
+      mb="4%"
+      onClick={() => navigate("/manageCharacter")}
+      >
+        Go to add character screen
+        </Button>
     </>
   );
 };
