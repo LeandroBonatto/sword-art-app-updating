@@ -19,8 +19,11 @@ interface charactersState {
 }
 
 const initialState: CharacterState = {
-  
-}
+  characterList: [],
+  status: "idle",
+  error: null,
+  battleCharacter: [],
+};
 
 type CharacterState = {
   characterList: ;
