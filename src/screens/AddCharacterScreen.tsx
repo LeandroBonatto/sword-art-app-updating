@@ -28,6 +28,14 @@ export const AddCharacterScreen = () => {
           return true;
       };
 
+      const onEnterHealth = (e) => {
+        setHealth(parseInt(e.target.value));
+      }
+
+      const onEnterDamage = (e) => {
+        setHealth(parseInt(e.target.value));
+      }
+
     const handleCharacterAdd = () => {
       if (!validateValues()){
         return;
