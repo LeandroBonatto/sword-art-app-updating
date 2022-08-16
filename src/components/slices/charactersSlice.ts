@@ -1,6 +1,15 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios';
-import { character } from '../../screens/AddCharacterScreen';
+
+
+export interface Character {
+  id: number;
+  name: string;
+  weapon: string;
+  fraction: string;
+  demagePerHit: number;
+  health: number;
+}
 
 type CharacterState = {
   characterList: ;
