@@ -1,16 +1,7 @@
-import { InputGroup, Stack, InputLeftElement, Input, InputRightElement, Alert, AlertIcon } from "@chakra-ui/react";
-import React, { useState } from 'react'
-import { addCharacter } from "../components/slices/charactersSlice";
+import { Alert, AlertIcon, Button, Input, Stack } from "@chakra-ui/react";
+import { useState } from "react";
 import { useAppDispatch } from "../hooks/redux";
-
-export interface character {
-  name: string;
-  fraction: string;
-  damagePerHit: number;
-  health: number;
-  weapon: string;
-}
-
+import { addCharacter, Character } from "../components/slices/charactersSlice";
 
 export const AddCharacterScreen = () => {
     const [name, setName] = useState("");
