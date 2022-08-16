@@ -7,6 +7,7 @@ import { LoginScreen } from "../screens/LoginScreen";
 import { BattlegroundScreen } from "../screens/BattlegroundScreen";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
+import { AddCharacterScreen } from "../screens/AddCharacterScreen";
 
 //react application can be represented as a tree of React components
 //This is a react root component
@@ -47,9 +48,14 @@ export const App = () => {
           path="/characters" 
           element={<CharactersScreen />}
           />
+          
           <Route 
             path="/winner" 
             element={<WinnerScreen winner={winner} />} 
+          />
+          <Route 
+            path="/managerCharacter" 
+            element={<AddCharacterScreen/>} 
           />
           <Route 
             path="/battleground" 
