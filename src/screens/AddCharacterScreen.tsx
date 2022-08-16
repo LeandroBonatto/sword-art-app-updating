@@ -2,6 +2,7 @@ import { Alert, AlertIcon, Button, Input, Stack } from "@chakra-ui/react";
 import { useState } from "react";
 import { useAppDispatch } from "../hooks/redux";
 import { addCharacter, Character } from "../components/slices/charactersSlice";
+import { useNavigate } from "react-router-dom";
 
 export const AddCharacterScreen = () => {
     const [name, setName] = useState("");
@@ -11,6 +12,7 @@ export const AddCharacterScreen = () => {
     const [weapon, setWeapon] = useState("");
 
     const [isAlertVisible, setIsAlertVisible] = useState(false);
+    const navigate = useNavigate();
 
     const dispatch = useAppDispatch();
 
@@ -43,6 +45,7 @@ export const AddCharacterScreen = () => {
         weapon,
       };
       dispatch(addCharacter(newCharacter as Character));
+      navigate("/characters");
     };
 
     const alert = (
