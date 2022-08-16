@@ -18,6 +18,10 @@ interface charactersState {
   battleCharacters: Character[];
 }
 
+const initialState: CharacterState = {
+  
+}
+
 type CharacterState = {
   characterList: ;
   status: string;
