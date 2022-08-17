@@ -1,12 +1,14 @@
 import { Alert, AlertIcon, Button, Input, Stack } from "@chakra-ui/react";
 import { useState } from "react";
 import { useAppDispatch } from "../hooks/redux";
-import { addCharacter, Character } from "../components/slices/charactersSlice";
+import { addCharacter, Character, charactersState } from "../components/slices/charactersSlice";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 export const AddCharacterScreen = () => {
-    const character = useSelector((state: Chara) => state.characters.characterToUpdate);
+    const character = useSelector(
+      (state: charactersState) => state.characters.characterToUpdate
+      );
     const [name, setName] = useState("");
     const [damagePetHit, setDamagePerHit] = useState("");
     const [health, setHealth] = useState(0);

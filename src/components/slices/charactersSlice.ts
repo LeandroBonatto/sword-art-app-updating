@@ -11,7 +11,7 @@ export interface Character {
   health: number;
 }
 
-interface charactersState {
+export interface charactersState {
   characterToUpdate: null,
   characterList: Character[];
   characterToUpdate: Character | null;
