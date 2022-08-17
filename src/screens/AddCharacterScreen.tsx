@@ -3,8 +3,10 @@ import { useState } from "react";
 import { useAppDispatch } from "../hooks/redux";
 import { addCharacter, Character } from "../components/slices/charactersSlice";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export const AddCharacterScreen = () => {
+    const character = useSelector
     const [name, setName] = useState("");
     const [damagePetHit, setDamagePerHit] = useState("");
     const [health, setHealth] = useState(0);
