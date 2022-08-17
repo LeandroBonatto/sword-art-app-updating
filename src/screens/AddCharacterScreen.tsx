@@ -9,9 +9,9 @@ export const AddCharacterScreen = () => {
     const character = useSelector(
       (state: charactersState) => state.characters.characterToUpdate
       );
-    const [name, setName] = useState("");
-    const [damagePetHit, setDamagePerHit] = useState("");
-    const [health, setHealth] = useState(0);
+    const [name, setName] = useState(character ? character.name : "");
+    const [damagePetHit, setDamagePerHit] = useState(character ? character.damagePerHit : "");
+    const [health, setHealth] = useState(character ? character.health : "");
     const [fraction, setFraction] = useState("");
     const [weapon, setWeapon] = useState("");
 
