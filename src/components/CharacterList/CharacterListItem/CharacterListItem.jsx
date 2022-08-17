@@ -27,7 +27,7 @@ export const CharacterListItem = ({character, isChampion}) => {
             <Td>{fraction}</Td>
             <Td>{weapon}</Td>
             <Td isNumeric>{damagePerHit}</Td>
-            <Td><Button>Update Character</Button></Td>
+            <Td><Button colorScheme={"blue"} onClick={handleUpdate}>Update Character</Button></Td>
         </Tr>
         );
 }
