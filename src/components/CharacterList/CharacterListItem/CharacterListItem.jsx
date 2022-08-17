@@ -2,7 +2,8 @@ import { Td, Tr, Button } from '@chakra-ui/react';
 import React from 'react'
 import { useAppDispatch } from '../../../hooks/redux';
 import { setCharacterToUpdate } from '../../slices/charactersSlice';
-import './CharacterListItem.css'
+import './CharacterListItem.css';
+import { useNavigate } from 'react-router-dom';
 
 //React component can receive one argument: props
 //You can pass data to the react component by using props.
@@ -11,9 +12,11 @@ export const CharacterListItem = ({character, isChampion}) => {
     const { id, name, health, fraction, weapon, damagePerHit} = character;
 
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
 
     const handleUpdate = () => {
         dispatch(setCharacterToUpdate(character));
+        navigate("/manageCharacter");
     }
     return (
         //When you use repeating elements in JSX, you should use key attribute
