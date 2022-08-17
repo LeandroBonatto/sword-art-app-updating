@@ -1,4 +1,4 @@
-import { Tr } from '@chakra-ui/react';
+import { Td, Tr, Button } from '@chakra-ui/react';
 import React from 'react'
 import './CharacterListItem.css'
 
@@ -6,7 +6,11 @@ import './CharacterListItem.css'
 //You can pass data to the react component by using props.
 //Props is an object that groups data that is passed to a component. 
 export const CharacterListItem = ({character, isChampion}) => {
-    const {name, health, fraction, weapon, damagePerHit} = character;
+    const { id, name, health, fraction, weapon, damagePerHit} = character;
+
+    const handleUpdate = () => {
+        
+    }
     return (
         //When you use repeating elements in JSX, you should use key attribute
         //It is required for React to be able to update the element
@@ -16,6 +20,7 @@ export const CharacterListItem = ({character, isChampion}) => {
             <Td>{fraction}</Td>
             <Td>{weapon}</Td>
             <Td isNumeric>{damagePerHit}</Td>
+            <Td><Button>Update Character</Button></Td>
         </Tr>
         );
 }

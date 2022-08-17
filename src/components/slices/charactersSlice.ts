@@ -12,13 +12,15 @@ export interface Character {
 }
 
 interface charactersState {
+  characterToUpdate: null,
   characterList: Character[];
+  characterToUpdate: Character | null;
   status: Character[];
   error: any;
   battleCharacters: Character[];
 }
 
-const initialState: CharacterState = {
+const initialState: CharactersState = {
   characterList: [],
   status: "idle",
   error: null,
@@ -84,6 +86,9 @@ export const charactersSlice = createSlice({
         return {
             characterList: state, characterList,
             battleCharacters: action.payload,
+            status: state.status,
+            error: state.error,
+            characterToUpdate: state.characterToUpdate,
         };
     },
   },
