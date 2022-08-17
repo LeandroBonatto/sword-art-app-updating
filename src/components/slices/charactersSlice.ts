@@ -74,11 +74,11 @@ export const charactersSlice = createSlice({
   reducers: {
     setCharacterToUpdate: (state, action) => {
       return {
-        characterList: state, characterList,
-        battleCharacters: action.payload,
+        characterList: state.characterList,
+        battleCharacters: state.battleCharacters,
         status: state.status,
         error: state.error,
-        characterToUpdate: state.characterToUpdate,
+        characterToUpdate: action.payload,
       };
     },
     //In canonical redux we can not mutate state directly, we need to return a new state
@@ -88,7 +88,7 @@ export const charactersSlice = createSlice({
     setBattleCharacters: (state, action) => {
         //state.battleCharacters = action.payload; will not work
         return {
-            characterList: state, characterList,
+            characterList: state.characterList,
             battleCharacters: action.payload,
             status: state.status,
             error: state.error,
@@ -108,6 +108,7 @@ export const charactersSlice = createSlice({
     .addCase(getCharacters.rejected, (state,action) => {
       state.status = "failed";
       state.characterList = action.error;
+      })
       .addCase(addCharacter.pending, (state, action) => {
         state.status = "loading";
       })
@@ -123,6 +124,6 @@ export const charactersSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { setBattleCharacters } = charactersSlice.actions;
+export const { setBattleCharacters, setCharacterToUpdate } = charactersSlice.actions;
 
 export default charactersSlice.reducer;

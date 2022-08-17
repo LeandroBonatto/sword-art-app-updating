@@ -1,5 +1,7 @@
 import { Td, Tr, Button } from '@chakra-ui/react';
 import React from 'react'
+import { useAppDispatch } from '../../../hooks/redux';
+import { setCharacterToUpdate } from '../../slices/charactersSlice';
 import './CharacterListItem.css'
 
 //React component can receive one argument: props
@@ -8,8 +10,10 @@ import './CharacterListItem.css'
 export const CharacterListItem = ({character, isChampion}) => {
     const { id, name, health, fraction, weapon, damagePerHit} = character;
 
+    const dispatch = useAppDispatch();
+
     const handleUpdate = () => {
-        
+        dispatch(setCharacterToUpdate(character));
     }
     return (
         //When you use repeating elements in JSX, you should use key attribute
