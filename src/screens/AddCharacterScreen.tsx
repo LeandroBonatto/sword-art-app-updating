@@ -12,8 +12,8 @@ export const AddCharacterScreen = () => {
     const [name, setName] = useState(character ? character.name : "");
     const [damagePetHit, setDamagePerHit] = useState(character ? character.damagePerHit : "");
     const [health, setHealth] = useState(character ? character.health : "");
-    const [fraction, setFraction] = useState("");
-    const [weapon, setWeapon] = useState("");
+    const [fraction, setFraction] = useState(character ? character.fraction : "");
+    const [weapon, setWeapon] = useState(character ? character.weapon : "");
 
     const [isAlertVisible, setIsAlertVisible] = useState(false);
     const navigate = useNavigate();
