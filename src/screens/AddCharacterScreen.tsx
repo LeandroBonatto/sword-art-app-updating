@@ -90,7 +90,7 @@ export const AddCharacterScreen = () => {
         onChange={(e) => setWeapon(e.target.value)} 
         placeholder="Please enter a character weapon" 
       />
-      <Button>Add character</Button>
+      <Button onClick={handleCharacterAddition}>Add character</Button>
       {isAlertVisible && alert}
     </Stack>
   );
