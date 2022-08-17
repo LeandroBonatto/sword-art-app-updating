@@ -5,6 +5,13 @@ import { addCharacter, Character, charactersState } from "../components/slices/c
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
+//Tips to do update
+//1. Make sure you provide id when you update the character (url should look like
+//http://localhost:8000/characters/1, and request type should be put)
+//2. Make sure you empty the characterToUpdate once you perform the update, or add will not work
+//3. Please implement appropriate action for update, it will look pretty similar to add action
+//4. Make sure to cover cases in extraReducers
+
 export const AddCharacterScreen = () => {
     const character = useSelector(
       (state: charactersState) => state.characters.characterToUpdate
