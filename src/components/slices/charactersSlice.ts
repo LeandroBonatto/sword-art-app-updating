@@ -70,13 +70,17 @@ async (character: Character) => {
 //provides actions and reducers to manage the state
 export const charactersSlice = createSlice({
   name: 'characters',
-  initialState: {
-    characterList: [],
-    status: "idle",
-    error: Error,
-    battleCharacters [],
-    } as CharacterState,
+  initialState,
   reducers: {
+    setCharacterToUpdate: (state, action) => {
+      return {
+        characterList: state, characterList,
+        battleCharacters: action.payload,
+        status: state.status,
+        error: state.error,
+        characterToUpdate: state.characterToUpdate,
+      };
+    },
     //In canonical redux we can not mutate state directly, we need to return a new state
     //But slices use Immer library to do immutable state mutations behind the scenes,
     //so we can mutate state directly
