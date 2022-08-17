@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 export const AddCharacterScreen = () => {
-    const character = useSelector
+    const character = useSelector((state: Chara) => state.characters.characterToUpdate);
     const [name, setName] = useState("");
     const [damagePetHit, setDamagePerHit] = useState("");
     const [health, setHealth] = useState(0);
